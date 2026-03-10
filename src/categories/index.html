@@ -1,0 +1,402 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Categories Management - Personal Finance</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script content='        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }' id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  primary: "#137fec",
+                  "background-light": "#f6f7f8",
+                  "background-dark": "#101922",
+                },
+                fontFamily: {
+                  display: ["Manrope"],
+                },
+                borderRadius: {
+                  DEFAULT: "0.25rem",
+                  lg: "0.5rem",
+                  xl: "0.75rem",
+                  full: "9999px",
+                },
+              },
+            },
+          };
+        </script>
+  <style>
+    body {
+      font-family: "Manrope", sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+    }
+
+    .sidebar-item-active {
+      background-color: rgba(19, 127, 236, 0.1);
+      color: #137fec;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+  <div class="relative flex h-full min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- Top Navigation Bar -->
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 lg:px-10 py-3 sticky top-0 z-50">
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-4 text-primary">
+            <div class="size-8 bg-primary/10 rounded-lg flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+            </div>
+            <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">
+              FinTrack
+            </h2>
+          </div>
+          <label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+            <div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-slate-100 dark:bg-slate-800">
+              <div class="text-slate-500 flex items-center justify-center pl-4">
+                <span class="material-symbols-outlined text-xl">search</span>
+              </div>
+              <input
+                class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:ring-0 h-full placeholder:text-slate-500 px-4 text-base font-normal"
+                placeholder="Search categories..." value="" />
+            </div>
+          </label>
+        </div>
+        <div class="flex flex-1 justify-end gap-4 items-center">
+          <div class="flex gap-2">
+            <button
+              class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button
+              class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+              <span class="material-symbols-outlined">settings</span>
+            </button>
+          </div>
+          <div class="h-10 w-10 rounded-full border-2 border-primary/20 p-0.5 overflow-hidden">
+            <img class="w-full h-full rounded-full object-cover shadow-sm" data-alt="User profile avatar close up"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55uoUAhg_eJOCeHm5YWnc2dCMppmCxVfMz504mTf60chcv-TTLVZEGHF3BJnkDmjnPpyu3GPixue5Bqi6YVe4L_feN5MA-qipgU4T31OnOd3lo-PrA5d6FvQ8v_gDskFK2xQ9UfkcnhsIOtnkPZ3OqAG2kyXBoY4K_KY5k6kJShKCSDo3xJtl4OLHc6eg2VN3-TSLjn6G4ZltB8kz4a2q_fb8bh6qMVnJ22PJo8lmF3HLaRn-LVE_K8l4eSoERQE8pUCd91I25Uc" />
+          </div>
+        </div>
+      </header>
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside
+          class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed h-full">
+          <div class="p-6 flex items-center gap-3">
+            <div class="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
+              <span class="material-symbols-outlined">account_balance_wallet</span>
+            </div>
+            <div>
+              <h1 class="font-bold text-lg leading-none">FinTrack</h1>
+              <p class="text-xs text-slate-500">Personal Finance</p>
+            </div>
+          </div>
+          <nav class="flex-1 px-4 py-4 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
+              href="/src/dashboard/index.html">
+              <span class="material-symbols-outlined text-[22px]">dashboard</span>
+              Dashboard
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
+              href="/src/transactions/index.html">
+              <span class="material-symbols-outlined text-[22px]">receipt_long</span>
+              Transactions
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
+              href="/src/budgets/index.html">
+              <span class="material-symbols-outlined text-[22px]">account_balance</span>
+              Budgets
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
+              href="/src/reports/index.html">
+              <span class="material-symbols-outlined text-[22px]">bar_chart</span>
+              Reports
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
+              href="/src/accounts/index.html">
+              <span class="material-symbols-outlined text-[22px]">credit_card</span>
+              Accounts
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg sidebar-item-active font-medium text-sm"
+              href="/src/categories/index.html">
+              <span class="material-symbols-outlined text-[22px]">sell</span>
+              Categories
+            </a>
+          </nav>
+          <div class="p-4 mt-auto mb-2">
+            <div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
+              <p class="text-xs font-bold text-primary uppercase tracking-wider mb-2">
+                Pro Plan
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">
+                Unlock advanced analytics and multi-account sync.
+              </p>
+              <button
+                class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">
+                Upgrade Now
+              </button>
+            </div>
+          </div>
+          <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+            <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
+              href="/src/settings/index.html">
+              <span class="material-symbols-outlined text-[22px]">settings</span>
+              Settings
+            </a>
+          </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-6 lg:p-10 ml-64">
+          <div class="max-w-5xl mx-auto">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+              <div class="space-y-1">
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                  Categories
+                </h1>
+                <p class="text-slate-500 dark:text-slate-400">
+                  Organize your finances with custom expense and income labels
+                </p>
+              </div>
+              <button
+                class="flex items-center justify-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all active:scale-95">
+                <span class="material-symbols-outlined text-xl">add_circle</span>
+                <span>Add Category</span>
+              </button>
+            </div>
+            <!-- Tab Switching -->
+            <div class="border-b border-slate-200 dark:border-slate-800 mb-8 overflow-x-auto">
+              <div class="flex gap-8 min-w-max">
+                <button class="pb-4 px-1 border-b-2 border-primary text-primary font-bold flex items-center gap-2">
+                  <span class="material-symbols-outlined text-lg">trending_down</span>
+                  Expenses
+                </button>
+                <button
+                  class="pb-4 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 font-bold flex items-center gap-2 transition-all">
+                  <span class="material-symbols-outlined text-lg">trending_up</span>
+                  Income
+                </button>
+              </div>
+            </div>
+            <!-- Expense Categories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Category Card 1 -->
+              <div
+                class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+                <div class="flex items-center justify-between mb-4">
+                  <div
+                    class="size-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center shadow-inner">
+                    <span class="material-symbols-outlined text-2xl">restaurant</span>
+                  </div>
+                  <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-xl">edit</span>
+                    </button>
+                    <button class="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                      <span class="material-symbols-outlined text-xl">delete</span>
+                    </button>
+                  </div>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  Food &amp; Dining
+                </h3>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-slate-500 dark:text-slate-400">12 Transactions</span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">$450.00
+                    <span class="text-xs text-slate-400 font-normal">/mo</span></span>
+                </div>
+              </div>
+              <!-- Category Card 2 -->
+              <div
+                class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+                <div class="flex items-center justify-between mb-4">
+                  <div
+                    class="size-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shadow-inner">
+                    <span class="material-symbols-outlined text-2xl">commute</span>
+                  </div>
+                  <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-xl">edit</span>
+                    </button>
+                    <button class="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                      <span class="material-symbols-outlined text-xl">delete</span>
+                    </button>
+                  </div>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  Transportation
+                </h3>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-slate-500 dark:text-slate-400">8 Transactions</span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">$120.00
+                    <span class="text-xs text-slate-400 font-normal">/mo</span></span>
+                </div>
+              </div>
+              <!-- Category Card 3 -->
+              <div
+                class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+                <div class="flex items-center justify-between mb-4">
+                  <div
+                    class="size-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center shadow-inner">
+                    <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                  </div>
+                  <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-xl">edit</span>
+                    </button>
+                    <button class="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                      <span class="material-symbols-outlined text-xl">delete</span>
+                    </button>
+                  </div>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  Entertainment
+                </h3>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-slate-500 dark:text-slate-400">4 Transactions</span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">$85.00
+                    <span class="text-xs text-slate-400 font-normal">/mo</span></span>
+                </div>
+              </div>
+              <!-- Category Card 4 -->
+              <div
+                class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+                <div class="flex items-center justify-between mb-4">
+                  <div
+                    class="size-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shadow-inner">
+                    <span class="material-symbols-outlined text-2xl">home</span>
+                  </div>
+                  <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-xl">edit</span>
+                    </button>
+                    <button class="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                      <span class="material-symbols-outlined text-xl">delete</span>
+                    </button>
+                  </div>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  Housing &amp; Rent
+                </h3>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-slate-500 dark:text-slate-400">1 Transaction</span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">$1,450.00
+                    <span class="text-xs text-slate-400 font-normal">/mo</span></span>
+                </div>
+              </div>
+              <!-- Category Card 5 -->
+              <div
+                class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
+                <div class="flex items-center justify-between mb-4">
+                  <div
+                    class="size-12 rounded-xl bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 flex items-center justify-center shadow-inner">
+                    <span class="material-symbols-outlined text-2xl">medical_services</span>
+                  </div>
+                  <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button class="p-2 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
+                      <span class="material-symbols-outlined text-xl">edit</span>
+                    </button>
+                    <button class="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                      <span class="material-symbols-outlined text-xl">delete</span>
+                    </button>
+                  </div>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                  Health
+                </h3>
+                <div class="flex items-center justify-between text-sm">
+                  <span class="text-slate-500 dark:text-slate-400">2 Transactions</span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-300">$60.00
+                    <span class="text-xs text-slate-400 font-normal">/mo</span></span>
+                </div>
+              </div>
+              <!-- Empty Add Category Placeholder -->
+              <button
+                class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-5 flex flex-col items-center justify-center gap-2 text-slate-400 dark:text-slate-600 hover:border-primary/50 hover:text-primary transition-all group">
+                <span
+                  class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">add_circle</span>
+                <span class="text-sm font-bold">New Category</span>
+              </button>
+            </div>
+            <!-- Statistics Preview Section -->
+            <div class="mt-12 p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/10">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">
+                Category Insights
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10">
+                  <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
+                    Most Used
+                  </p>
+                  <p class="text-xl font-extrabold text-primary">
+                    Dining Out
+                  </p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10">
+                  <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
+                    Highest Spending
+                  </p>
+                  <p class="text-xl font-extrabold text-primary">Housing</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10">
+                  <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
+                    Total Expenses
+                  </p>
+                  <p class="text-xl font-extrabold text-primary">$2,165.00</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10">
+                  <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
+                    Trend
+                  </p>
+                  <p class="text-xl font-extrabold text-emerald-500 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">trending_down</span>
+                    12.5%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

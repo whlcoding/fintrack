@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FinTrack - Master Your Money with Ease</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block">account_balance_wallet</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">FinTrack</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#features">Features</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#how-it-works">How it Works</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:block text-sm font-bold text-slate-700 dark:text-slate-200 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all">Login</button>
+<button class="bg-primary text-white text-sm font-bold px-5 py-2.5 rounded-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">Get Started</button>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative py-20 lg:py-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                            Trusted by 50,000+ users
+                        </div>
+<h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.1] tracking-tight">
+                            Master Your Money <span class="text-primary">with Ease</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Take control of your financial future with smart budgeting, real-time tracking, and secure insights. All your accounts in one beautiful place.
+                        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/25 hover:translate-y-[-2px] transition-all">Start Saving Today</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">Watch Demo</button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/30 to-blue-600/30 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+<img alt="Dashboard Mockup" class="w-full object-cover aspect-[4/3]" data-alt="Modern financial dashboard showing investment charts and balance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjYr92OU-9FL9iUL4bhX-jDAMzUwM7-cu5VP5LQ58hdRXSCt8aJjxrZt5pMcrx9t0Td2o-YH8_IYEpxHoXE33QGgzUg3edKw10OD1ZgvaJtBN6cJT6AGsTCZaiROMwA5cV2rqf1wpPYmUl8NTOZf4g5MKULtWew6eIfzKKjJ5YVZVdpVXDTkTTr0THXVPEVE0g3GO3np33XuUQlLLsphCczSPugf90z8sMQjputZs9PFRtwvFTc3iY7Vk_wstz49gPNjanuLv0A5A"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative background element -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+</section>
+<!-- Features Section -->
+<section class="py-24 bg-white dark:bg-background-dark/50" id="features">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Everything you need to grow your wealth</h2>
+<p class="text-slate-600 dark:text-slate-400">Our suite of tools is designed to give you clarity and confidence in every financial decision you make.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Feature 1 -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light/50 dark:bg-slate-900/50 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">dashboard</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Dashboard Overview</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            A birds-eye view of all your accounts and net worth in real-time updates.
+                        </p>
+</div>
+<!-- Feature 2 -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light/50 dark:bg-slate-900/50 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">track_changes</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Smart Budgeting</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Set limits and get smart alerts to stay on track with your monthly saving goals.
+                        </p>
+</div>
+<!-- Feature 3 -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light/50 dark:bg-slate-900/50 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Detailed Reports</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Deep dive into your spending habits with intuitive visual analytics and categorization.
+                        </p>
+</div>
+<!-- Feature 4 -->
+<div class="p-8 rounded-2xl border border-slate-100 dark:border-slate-800 bg-background-light/50 dark:bg-slate-900/50 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Secure Accounts</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Bank-grade encryption and biometric security to keep your financial data private.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mockup Section -->
+<section class="py-24 overflow-hidden bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-primary/5 rounded-[2.5rem] p-8 lg:p-16 border border-primary/10 relative">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Experience the Dashboard</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                                Our interface is designed for humans, not accountants. Get a clear picture of your finances without the headache of spreadsheets.
+                            </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                    Sync unlimited bank accounts
+                                </li>
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                    Auto-categorize transactions
+                                </li>
+<li class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                    Real-time net worth calculator
+                                </li>
+</ul>
+</div>
+<div class="relative">
+<div class="rounded-xl shadow-2xl border-4 border-slate-200 dark:border-slate-800 overflow-hidden transform lg:rotate-2">
+<img alt="Financial UI" class="w-full" data-alt="App interface showing monthly spending charts and goal progress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsiMX-6nZjERP4YB3R6Hy1lSK7wBBg_p2aF1S6Fs3nrSO5m1iymRMi8EkbpdkF_74-7tSAJsAEzcmxFBnMoz8yD-qtw9mCZ4JlhzbcBRZS78sRH3WYfIWwzn4dixZlaPlK0Bzw-L0xLfJ1dJkodxN5To_ADDPmQTI-lPTXTf2ICowflJalT1daIYoby1j7K_xoaOpRc-e0NTg853Hn2BorVuOyjXcArNvZtakvmlz2X108Zxp4qLKW4TVI6Pkqzx5uZ174yNsFSuo"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-24 bg-white dark:bg-background-dark/30" id="how-it-works">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Three steps to financial freedom</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<div class="text-center">
+<div class="w-16 h-16 bg-primary text-white text-2xl font-bold rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/30">1</div>
+<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Connect Accounts</h3>
+<p class="text-slate-600 dark:text-slate-400">Securely link your bank accounts, credit cards, and investments.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary text-white text-2xl font-bold rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/30">2</div>
+<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Set Your Goals</h3>
+<p class="text-slate-600 dark:text-slate-400">Tell us what you're saving for, and we'll build a personalized budget.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 bg-primary text-white text-2xl font-bold rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/30">3</div>
+<h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Watch it Grow</h3>
+<p class="text-slate-600 dark:text-slate-400">Follow our smart insights and reach your financial goals faster.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-background-light dark:bg-background-dark" id="testimonials">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex gap-1 text-yellow-400 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 italic mb-6">"FinTrack helped me save my first $10k in under a year. The budgeting alerts are a lifesaver!"</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+<img alt="Sarah J." data-alt="Portrait of a smiling young professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoS99NbiqF9I9QIB8ue71AvAPtFumfQJuusriEJQneRed2sgH_LPpVCAiIoMBufhORZxpEuusvW0xViUImZnIhFbOKjYGGkrJr_xJbwEqdAdSLWrJmZP5CYHg4D0tp3Jxx7uoApe2TZARBYJ84-uOSKB3I2Tl-3IwNS_nCkEDHes9F5Zk5S_34cP8hMCQK3izsSRbVU2qgAhYOTcWpAqwWhN3mtP-EbX57boDKaThuPh2U7qo3zKN5YgltcB4VHd_kVGvWFBk3bRs"/>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Sarah Jenkins</h4>
+<p class="text-sm text-slate-500">Marketing Director</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex gap-1 text-yellow-400 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 italic mb-6">"Finally an app that makes finance easy to understand. The visual reports are incredible."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+<img alt="David R." data-alt="Portrait of a confident man in casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_NgGRrzr5vAIQ3RWEr3R03c2uRVyMhlo8NJY_xyqnCDihkP4AxQJ26sD_7jHRSm1zaFpHssZaQYU0OUAC3iAW5JAmASKLWB_62E0hOTQ3IkRdJyaw3vpaLpq8PGIozizzc6zOaH_p1UWTGYaEMizvSElnNSEmziUtDwkw2-NQ_xwzaAr4c3fpA0X1vtf55Q7XybEALFuo21nxNTR65cqNL7QhnbGGiTN7D_5ezzGB45oGBn9mp5BT0IWt6ikaap5622bZlxjgb_g"/>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">David Rivera</h4>
+<p class="text-sm text-slate-500">Software Engineer</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex gap-1 text-yellow-400 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 italic mb-6">"Secure, reliable, and beautiful. It's the only finance app I actually enjoy using every day."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200">
+<img alt="Emma W." data-alt="Portrait of a professional woman in business casual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfTOPcaLkcSczGEp3bNWWWlXKfQWdlaIlmAXtggyC0XN_QmQ1CgkZyXDMKYb_6u5OYWLLDHjubXtrKYdszc5d9d4-AzQpsGe0EQ2n96OpyKxmZFKuWk-1iyFRZNwyILxm1uCFEStS8KNo1PPN177PsiUme4_tZx3x4xG1WXHiV6dWpDPOtBWNrv3zRjEDaC2MHb1lMuHmCX0xBNPo-DjwivZYPgVOceikkq6cuVb0-PRPrXBoOGflVxthekd8llkfqTLaPZMz6qWg"/>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white">Emma Wilson</h4>
+<p class="text-sm text-slate-500">Freelance Designer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-primary rounded-[2rem] p-12 text-center text-white relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="text-4xl font-extrabold mb-4">Ready to take control?</h2>
+<p class="text-xl text-white/80 mb-10 max-w-xl mx-auto">Join thousands of others who are building a better financial future with FinTrack today.</p>
+<button class="bg-white text-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all shadow-xl shadow-black/10">Get Started for Free</button>
+</div>
+<!-- Decorative background -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-black/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block">account_balance_wallet</span>
+</div>
+<span class="text-xl font-bold text-slate-900 dark:text-white">FinTrack</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                        Empowering individuals to master their finances with intelligent tools and real-time insights.
+                    </p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Product</h4>
+<ul class="space-y-4 text-slate-500 dark:text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pricing</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Dashboard</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Company</h4>
+<ul class="space-y-4 text-slate-500 dark:text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-6">Legal</h4>
+<ul class="space-y-4 text-slate-500 dark:text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-slate-400 text-xs">
+<p>© 2024 FinTrack Inc. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>
