@@ -326,13 +326,16 @@
               </div>
             </div>
           </div>
-          <!-- Empty Add State -->
+          <!-- Empty Add State — BIAS: Efeito de Mera Exposição -->
           <div
-            class="rounded-xl p-6 border-2 border-dashed border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center text-center gap-4 group cursor-pointer hover:bg-white dark:hover:bg-slate-900 transition-all">
+            class="rounded-xl p-6 border-2 border-dashed border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center text-center gap-5 group cursor-pointer hover:bg-white dark:hover:bg-slate-900 transition-all">
+
+            <!-- Plus icon -->
             <div
               class="size-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-primary transition-colors">
               <span class="material-symbols-outlined text-2xl">add</span>
             </div>
+
             <div>
               <p class="font-bold text-slate-700 dark:text-slate-300">
                 Vincular Novo Banco
@@ -341,6 +344,57 @@
                 Adicione outra instituição ou conta
               </p>
             </div>
+
+            <!-- Bank logos grid (grayscale – Mere Exposure Effect) -->
+            <div class="flex items-center justify-center gap-3 flex-wrap">
+
+              <!-- Chase -->
+              <div title="Chase"
+                class="h-8 px-3 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center opacity-50 grayscale hover:opacity-70 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" class="h-5 w-auto" aria-label="Chase Bank">
+                  <rect x="0" y="4" width="32" height="32" rx="4" fill="#currentColor" class="fill-slate-700 dark:fill-slate-300"/>
+                  <polygon points="16,6 30,14 30,26 16,34 2,26 2,14" fill="white" opacity="0.15"/>
+                  <line x1="16" y1="6" x2="16" y2="34" stroke="white" stroke-width="2.5" opacity="0.6"/>
+                  <line x1="2" y1="20" x2="30" y2="20" stroke="white" stroke-width="2.5" opacity="0.6"/>
+                  <text x="38" y="27" font-family="Arial,sans-serif" font-weight="800" font-size="15" class="fill-slate-700 dark:fill-slate-300" fill="#334155">CHASE</text>
+                </svg>
+              </div>
+
+              <!-- Amex -->
+              <div title="American Express"
+                class="h-8 px-3 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center opacity-50 grayscale hover:opacity-70 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" class="h-5 w-auto" aria-label="American Express">
+                  <text x="0" y="27" font-family="Arial,sans-serif" font-weight="900" font-size="13" letter-spacing="1" fill="#334155" class="fill-slate-700">AMERICAN</text>
+                  <text x="0" y="40" font-family="Arial,sans-serif" font-weight="900" font-size="13" letter-spacing="1" fill="#334155" class="fill-slate-700">EXPRESS</text>
+                </svg>
+              </div>
+
+              <!-- Visa -->
+              <div title="Visa"
+                class="h-8 px-3 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center opacity-50 grayscale hover:opacity-70 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 30" class="h-5 w-auto" aria-label="Visa">
+                  <text x="0" y="24" font-family="Arial,sans-serif" font-weight="900" font-size="26" fill="#1a1f71" class="fill-slate-800" letter-spacing="-1">VISA</text>
+                </svg>
+              </div>
+
+              <!-- Mastercard -->
+              <div title="Mastercard"
+                class="h-8 px-3 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center opacity-50 grayscale hover:opacity-70 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 32" class="h-5 w-auto" aria-label="Mastercard">
+                  <circle cx="18" cy="16" r="14" fill="#eb001b" class="fill-slate-600"/>
+                  <circle cx="34" cy="16" r="14" fill="#f79e1b" class="fill-slate-400"/>
+                  <path d="M26 5.7a14 14 0 0 1 0 20.6A14 14 0 0 1 26 5.7z" fill="#ff5f00" class="fill-slate-500"/>
+                </svg>
+              </div>
+
+            </div>
+
+            <!-- Microcopy – security signal -->
+            <p class="text-[10px] text-slate-400 dark:text-slate-500 flex items-center gap-1 font-medium">
+              <span class="material-symbols-outlined text-[13px]">lock</span>
+              Conexão segura com seu banco
+            </p>
+
           </div>
         </div>
         <!-- Recent Activity Section -->

@@ -53,6 +53,64 @@
       background-color: rgba(19, 127, 236, 0.1);
       color: #137fec;
     }
+
+    /* ── Framing Effect banner ── */
+    .framing-banner {
+      background: linear-gradient(135deg, #eef6ff 0%, #f0fdf4 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .framing-banner .fb-icon {
+      background: #137fec;
+      color: #fff;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .framing-banner .fb-text {
+      font-size: 0.82rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .framing-banner .fb-text strong {
+      color: #137fec;
+    }
+    .framing-banner .fb-highlight {
+      margin-left: auto;
+      background: #22c55e;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Loss Aversion microcopy pill ── */
+    .loss-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
   </style>
   <title>Transações - FinanceApp</title>
 </head>
@@ -238,6 +296,18 @@
             </div>
           </div>
         </div>
+        <!-- BIAS: Efeito de Enquadramento (Framing Effect) -->
+        <div class="framing-banner" role="note" aria-label="Resumo de desempenho mensal">
+          <div class="fb-icon">
+            <span class="material-symbols-outlined" style="font-size:1.1rem">insights</span>
+          </div>
+          <div class="fb-text">
+            Você gastou <strong>$115,79</strong> este mês — <strong>12% abaixo</strong> do seu histórico médio de $131,60.
+            Continuar assim significa <strong>~$190 a mais</strong> poupados até o final do trimestre. 🎯
+          </div>
+          <span class="fb-highlight">↓ 12% vs média</span>
+        </div>
+
         <!-- Transactions Table -->
         <div
           class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
@@ -269,11 +339,16 @@
                         class="size-10 bg-orange-100 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-full flex items-center justify-center">
                         <span class="material-symbols-outlined">shopping_bag</span>
                       </div>
+                      <!-- BIAS: Aversão à Perda — despesa acima da média da categoria -->
                       <div>
                         <p class="text-sm font-bold text-slate-900 dark:text-white">
                           Apple Store
                         </p>
                         <p class="text-xs text-slate-500">Capa para iPhone 15</p>
+                        <span class="loss-pill">
+                          <span class="material-symbols-outlined" style="font-size:0.7rem;font-variation-settings:'FILL' 1,'wght' 700">warning</span>
+                          Acima da média de Eletrônicos ($35)
+                        </span>
                       </div>
                     </div>
                   </td>
@@ -373,11 +448,16 @@
                         class="size-10 bg-purple-100 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-full flex items-center justify-center">
                         <span class="material-symbols-outlined">local_taxi</span>
                       </div>
+                      <!-- BIAS: Aversão à Perda — corrida pontual acima da média semanal -->
                       <div>
                         <p class="text-sm font-bold text-slate-900 dark:text-white">
                           Uber Technologies
                         </p>
                         <p class="text-xs text-slate-500">Viagem ao Centro</p>
+                        <span class="loss-pill">
+                          <span class="material-symbols-outlined" style="font-size:0.7rem;font-variation-settings:'FILL' 1,'wght' 700">warning</span>
+                          2× sua corrida média ($12)
+                        </span>
                       </div>
                     </div>
                   </td>

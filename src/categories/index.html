@@ -69,6 +69,79 @@
       background-color: rgba(19, 127, 236, 0.1);
       color: #137fec;
     }
+
+    /* ── Efeito Halo — badge de categoria controlada ── */
+    .halo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #15803d;
+      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      border: 1px solid #86efac;
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+      margin-top: 0.35rem;
+    }
+    .halo-badge .material-symbols-outlined {
+      font-size: 0.7rem;
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 20;
+    }
+
+    /* ── Efeito de Escassez — banner de alerta ── */
+    .scarcity-banner {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #fff7ed 0%, #fef9f0 100%);
+      border: 1.5px solid #fdba74;
+      border-radius: 1rem;
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .scarcity-banner .sb-icon {
+      background: #f97316;
+      color: #fff;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .scarcity-banner .sb-body {
+      flex: 1;
+    }
+    .scarcity-banner .sb-body strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #92400e;
+      margin-bottom: 0.15rem;
+    }
+    .scarcity-banner .sb-body p {
+      font-size: 0.78rem;
+      color: #78350f;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .scarcity-banner .sb-cta {
+      background: #f97316;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 0.6rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .scarcity-banner .sb-cta:hover { background: #ea580c; }
   </style>
 </head>
 
@@ -217,7 +290,7 @@
             </div>
             <!-- Expense Categories Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <!-- Category Card 1 -->
+                <!-- Category Card 1 — BIAS: Efeito Halo (badge Controlado) -->
               <div
                 class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
                 <div class="flex items-center justify-between mb-4">
@@ -237,13 +310,18 @@
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
                   Alimentação
                 </h3>
-                <div class="flex items-center justify-between text-sm">
+                <!-- badge Efeito Halo -->
+                <div class="halo-badge">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  Controlado
+                </div>
+                <div class="flex items-center justify-between text-sm mt-2">
                   <span class="text-slate-500 dark:text-slate-400">12 Transações</span>
                   <span class="font-semibold text-slate-700 dark:text-slate-300">$450.00
                     <span class="text-xs text-slate-400 font-normal">/mês</span></span>
                 </div>
               </div>
-              <!-- Category Card 2 -->
+              <!-- Category Card 2 — BIAS: Efeito Halo (badge Controlado) -->
               <div
                 class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
                 <div class="flex items-center justify-between mb-4">
@@ -263,7 +341,12 @@
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
                   Transporte
                 </h3>
-                <div class="flex items-center justify-between text-sm">
+                <!-- badge Efeito Halo -->
+                <div class="halo-badge">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  Controlado
+                </div>
+                <div class="flex items-center justify-between text-sm mt-2">
                   <span class="text-slate-500 dark:text-slate-400">8 Transações</span>
                   <span class="font-semibold text-slate-700 dark:text-slate-300">$120.00
                     <span class="text-xs text-slate-400 font-normal">/mês</span></span>
@@ -321,7 +404,7 @@
                     <span class="text-xs text-slate-400 font-normal">/mês</span></span>
                 </div>
               </div>
-              <!-- Category Card 5 -->
+              <!-- Category Card 5 — BIAS: Efeito Halo (badge Controlado) -->
               <div
                 class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
                 <div class="flex items-center justify-between mb-4">
@@ -341,7 +424,12 @@
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">
                   Saúde
                 </h3>
-                <div class="flex items-center justify-between text-sm">
+                <!-- badge Efeito Halo -->
+                <div class="halo-badge">
+                  <span class="material-symbols-outlined">check_circle</span>
+                  Controlado
+                </div>
+                <div class="flex items-center justify-between text-sm mt-2">
                   <span class="text-slate-500 dark:text-slate-400">2 Transações</span>
                   <span class="font-semibold text-slate-700 dark:text-slate-300">$60.00
                     <span class="text-xs text-slate-400 font-normal">/mês</span></span>
@@ -354,6 +442,19 @@
                   class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">add_circle</span>
                 <span class="text-sm font-bold">Nova Categoria</span>
               </button>
+            </div>
+
+            <!-- BIAS: Efeito de Escassez — alerta de categoria sem orçamento -->
+            <div class="scarcity-banner" role="alert">
+              <div class="sb-icon">
+                <span class="material-symbols-outlined" style="font-size:1.2rem">bolt</span>
+              </div>
+              <div class="sb-body">
+                <strong>⚠️ Categorias sem orçamento gastam 30% a mais</strong>
+                <p>Você tem <strong>2 categorias</strong> (Entretenimento e Moradia) sem limite definido. Quem define orçamentos
+                  poupa, em média, <strong>$220/mês</strong> a mais. Não deixe essa economia escapar.</p>
+              </div>
+              <button class="sb-cta" onclick="window.location.href='/src/budgets/index.html'">Definir Orçamentos</button>
             </div>
             <!-- Statistics Preview Section -->
             <div class="mt-12 p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/10">

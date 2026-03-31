@@ -169,7 +169,7 @@
                         <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Orçamentos Mensais</h2>
                         <p class="text-slate-500 mt-1">Gerencie seus limites de gastos para Junho de 2024</p>
                     </div>
-                    <button
+                    <button onclick="toggleModal()"
                         class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 transition-all active:scale-95">
                         <span class="material-symbols-outlined text-xl">add_circle</span>
                         Criar Novo Orçamento
@@ -438,24 +438,73 @@
                 </div>
                 <!-- Footer / Quick Action -->
                 <div
-                    class="mt-12 p-8 bg-gradient-to-r from-primary to-blue-600 rounded-2xl text-white flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
+                    class="mt-12 p-8 bg-gradient-to-r from-primary to-blue-600 rounded-2xl text-white flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group"
+                    style="background-image: linear-gradient(to right, rgba(19, 127, 236, 0.9), rgba(37, 99, 235, 0.9)), url('https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center;">
                     <div class="relative z-10">
-                        <h4 class="text-2xl font-black mb-2">Pronto para economizar mais?</h4>
-                        <p class="text-blue-100">Configure uma meta inteligente para transferir automaticamente o orçamento restante para a poupança.</p>
+                        <h4 class="text-2xl font-black mb-2">Qual é a sua próxima conquista?</h4>
+                        <p class="text-blue-100 font-medium">Configure uma meta e chegue lá.</p>
                     </div>
                     <button
                         class="relative z-10 px-8 py-3 bg-white text-primary font-bold rounded-lg hover:bg-blue-50 transition-colors shadow-xl active:scale-95">
                         Configurar Meta de Poupança
                     </button>
-                    <!-- Decorative Element -->
+                    <!-- Decorative elements preserved -->
                     <div
                         class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all duration-700">
                     </div>
-                    <div class="absolute -left-10 -top-10 w-48 h-48 bg-black/5 rounded-full blur-2xl"></div>
                 </div>
             </div>
         </main>
     </div>
+
+    <!-- Create Budget Modal (Anchoring Effect) -->
+    <div id="createBudgetModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl shadow-2xl p-6 transform transition-all border border-slate-200 dark:border-slate-800">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Criar Novo Orçamento</h3>
+                <button onclick="toggleModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Categoria</label>
+                    <select class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg py-2.5 px-4 text-sm focus:ring-primary focus:border-primary">
+                        <option>Selecione uma categoria...</option>
+                        <option>Alimentação</option>
+                        <option>Transporte</option>
+                        <option>Educação</option>
+                        <option>Viagens</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Limite do Orçamento ($)</label>
+                    <input type="number" 
+                           placeholder="Recomendado: $450 (baseado na sua média dos últimos 3 meses)"
+                           class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg py-3 px-4 text-sm focus:ring-primary focus:border-primary placeholder:text-slate-400 placeholder:italic">
+                    <p class="mt-2 text-[11px] text-primary/80 font-medium italic">
+                        💡 Recomendado: $450 (baseado na sua média dos últimos 3 meses)
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 flex gap-3">
+                <button onclick="toggleModal()" class="flex-1 py-2.5 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    Cancelar
+                </button>
+                <button class="flex-1 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20">
+                    Criar Orçamento
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Toggle Script -->
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('createBudgetModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
 </body>
 
 </html>
