@@ -172,6 +172,7 @@
                         <p class="text-slate-500 mt-1">Gerencie seus limites de gastos para Junho de 2024</p>
                     </div>
                     <button onclick="toggleModal()"
+                        data-tour="create-budget"
                         class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 transition-all active:scale-95">
                         <span class="material-symbols-outlined text-xl">add_circle</span>
                         Criar Novo Orçamento
@@ -469,7 +470,7 @@
                     </div>
                 </div>
                 <!-- Footer / Efeito Priming — associações visuais de conquistas aspiracionais -->
-                <div class="mt-12 rounded-2xl overflow-hidden" id="priming-banner">
+                <div class="mt-12 rounded-2xl overflow-hidden" id="priming-banner" data-tour="budgets-banner">
                     <!-- Camada de priming: imagens mentais de metas -->
                     <div
                         class="bg-gradient-to-br from-slate-900 via-[#0f2a4a] to-primary p-8 text-white relative overflow-hidden">
@@ -620,6 +621,7 @@
             }, 3500);
         }
     </script>
+    <script src="/src/assets/js/tour.js"></script>
 </body>
 
 </html>
