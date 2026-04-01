@@ -1,6 +1,6 @@
 /**
  * FinTrack — Tour Interativo de Vieses Cognitivos
- * Um único arquivo autocontido. Inclua com <script src="/src/assets/js/tour.js"></script>
+ * Um único arquivo autocontido. Inclua com <script src="/fintrack/src/assets/js/tour.js"></script>
  * no final do <body> de qualquer página do projeto.
  */
 (function () {
@@ -10,7 +10,7 @@
   var STEPS = [
     {
       selector: '[data-tour="monthly-expenses"]',
-      page: '/src/dashboard/index.html',
+      page: '/fintrack/src/dashboard/index.html',
       bias: 'Viés de Aversão à Perda',
       where: 'Dashboard / Card "Despesas Mensais"',
       definition: 'A sensação ruim de perder algo é muito mais intensa do que a alegria de ganhar, o que nos faz tomar decisões focadas em prevenir perdas.',
@@ -18,7 +18,7 @@
     },
     {
       selector: '[data-tour="upgrade-now"]',
-      page: '/src/dashboard/index.html',
+      page: '/fintrack/src/dashboard/index.html',
       bias: 'Efeito Grátis',
       where: 'Dashboard / Sidebar — Botão "Upgrade Now"',
       definition: 'Oferecer um item totalmente gratuito pode gerar um impulso de ação ou compra muito maior do que oferecer um grande desconto.',
@@ -26,7 +26,7 @@
     },
     {
       selector: '[data-tour="budgets-banner"]',
-      page: '/src/budgets/index.html',
+      page: '/fintrack/src/budgets/index.html',
       bias: 'Efeito Priming',
       where: 'Budgets / Banner do rodapé',
       definition: 'Nossas escolhas e decisões são diretamente influenciadas por associações que fazemos com estímulos recentes, como imagens, palavras, memórias ou até cheiros.',
@@ -34,7 +34,7 @@
     },
     {
       selector: '[data-tour="create-budget"]',
-      page: '/src/budgets/index.html',
+      page: '/fintrack/src/budgets/index.html',
       bias: 'Efeito Ancoragem',
       where: 'Budgets / Botão "+ Criar Novo Orçamento"',
       definition: 'A primeira informação que recebemos sobre um produto ou serviço funciona como uma base (âncora) e passa a definir o nosso julgamento de valor sobre ele.',
@@ -42,7 +42,7 @@
     },
     {
       selector: '[data-tour="top-spending"]',
-      page: '/src/reports/index.html',
+      page: '/fintrack/src/reports/index.html',
       bias: 'Efeito Posição Serial',
       where: 'Reports / Lista "Top Spending"',
       definition: 'Ao visualizar uma série de informações, a nossa mente lembrará com muito mais facilidade do primeiro e do último item escaneado.',
@@ -50,7 +50,7 @@
     },
     {
       selector: '[data-tour="download-report"]',
-      page: '/src/reports/index.html',
+      page: '/fintrack/src/reports/index.html',
       bias: 'Viés da Regra do Pico-Fim',
       where: 'Reports / Ação final "Download Report"',
       definition: 'A nossa memória sobre um acontecimento não é exata; ela é um resumo focado nos momentos de emoção mais intensa (picos) e na forma exata como o evento terminou.',
@@ -58,7 +58,7 @@
     },
     {
       selector: '[data-tour="link-bank"]',
-      page: '/src/accounts/index.html',
+      page: '/fintrack/src/accounts/index.html',
       bias: 'Viés de Mera Exposição',
       where: 'Accounts / Card "Vincular Novo Banco"',
       definition: 'O nosso cérebro desconfia do que é novo, mas quanto mais somos expostos a algo criando familiaridade, maior se torna a nossa aceitação em relação àquilo.',
@@ -66,7 +66,7 @@
     },
     {
       selector: '[data-tour="pro-offer"]',
-      page: '/src/dashboard/index.html',
+      page: '/fintrack/src/dashboard/index.html',
       bias: 'Viés do Desconto Hiperbólico',
       where: 'Dashboard / Sidebar — Oferta Pro',
       definition: 'Preferimos recompensas menores e imediatas em vez de esperar por opções melhores no futuro, pois somos impacientes por natureza.',
@@ -394,7 +394,7 @@
     if (visibleSteps.length === 0) {
       // Página sem etapas — navega para o dashboard (etapa 0)
       sessionStorage.setItem(STORAGE_STEP, '0');
-      window.location.href = '/src/dashboard/index.html';
+      window.location.href = '/fintrack/src/dashboard/index.html';
       return;
     }
 
@@ -611,7 +611,7 @@
   var GD_STEPS = [
     {
       selector: '[data-insight="pro-card-dashboard"]',
-      page: '/src/dashboard/index.html',
+      page: '/fintrack/src/dashboard/index.html',
       technique: 'SE',
       techniqueLabel: 'Singularity Effect',
       title: 'Mensagem única e contextual',
@@ -621,7 +621,7 @@
     },
     {
       selector: '[data-insight="first-step-banner"]',
-      page: '/src/dashboard/index.html',
+      page: '/fintrack/src/dashboard/index.html',
       technique: 'MC + SE',
       techniqueLabel: 'Micro-commitment + Singularity Effect',
       title: 'Captura de intenção no primeiro acesso',
@@ -631,7 +631,7 @@
     },
     {
       selector: '[data-insight="save-190-btn"]',
-      page: '/src/transactions/index.html',
+      page: '/fintrack/src/transactions/index.html',
       technique: 'MC',
       techniqueLabel: 'Micro-commitment',
       title: 'Ação no pico do momentum positivo',
@@ -641,7 +641,7 @@
     },
     {
       selector: '[data-insight="streak-banner"]',
-      page: '/src/budgets/index.html',
+      page: '/fintrack/src/budgets/index.html',
       technique: 'MC',
       techniqueLabel: 'Micro-commitment',
       title: 'Streak como comprometimento implícito',
@@ -651,7 +651,7 @@
     },
     {
       selector: '[data-insight="trend-kpi-badge"]',
-      page: '/src/categories/index.html',
+      page: '/fintrack/src/categories/index.html',
       technique: 'SE',
       techniqueLabel: 'Singularity Effect',
       title: 'Um único KPI elevado elimina a paralisia',
@@ -661,7 +661,7 @@
     },
     {
       selector: '[data-insight="next-best-action"]',
-      page: '/src/reports/index.html',
+      page: '/fintrack/src/reports/index.html',
       technique: 'SE',
       techniqueLabel: 'Singularity Effect',
       title: 'Fechar o loop cognitivo com uma única ação',
@@ -986,7 +986,7 @@
 
     if (gdVisibleSteps.length === 0) {
       sessionStorage.setItem(GD_STORAGE_STEP, '0');
-      window.location.href = '/src/dashboard/index.html';
+      window.location.href = '/fintrack/src/dashboard/index.html';
       return;
     }
 
