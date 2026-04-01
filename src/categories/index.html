@@ -85,6 +85,7 @@
       padding: 0.15rem 0.55rem;
       margin-top: 0.35rem;
     }
+
     .halo-badge .material-symbols-outlined {
       font-size: 0.7rem;
       font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 20;
@@ -101,6 +102,7 @@
       align-items: center;
       gap: 1rem;
     }
+
     .scarcity-banner .sb-icon {
       background: #f97316;
       color: #fff;
@@ -112,9 +114,11 @@
       justify-content: center;
       flex-shrink: 0;
     }
+
     .scarcity-banner .sb-body {
       flex: 1;
     }
+
     .scarcity-banner .sb-body strong {
       display: block;
       font-size: 0.88rem;
@@ -122,12 +126,14 @@
       color: #92400e;
       margin-bottom: 0.15rem;
     }
+
     .scarcity-banner .sb-body p {
       font-size: 0.78rem;
       color: #78350f;
       line-height: 1.5;
       margin: 0;
     }
+
     .scarcity-banner .sb-cta {
       background: #f97316;
       color: #fff;
@@ -141,11 +147,42 @@
       flex-shrink: 0;
       transition: background 0.2s;
     }
-    .scarcity-banner .sb-cta:hover { background: #ea580c; }
+
+    .scarcity-banner .sb-cta:hover {
+      background: #ea580c;
+    }
+
     /* ── KPI Singularity Effect pulse ── */
-    @keyframes kpiPulse { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4)} 60%{box-shadow:0 0 0 8px rgba(16,185,129,0)} }
-    .kpi-featured { border-color: rgba(16,185,129,0.4) !important; animation: kpiPulse 2.5s infinite; }
-    .kpi-focus-badge { display:inline-block; font-size:0.55rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:#065f46; background:#d1fae5; border:1px solid #6ee7b7; border-radius:999px; padding:0.1rem 0.45rem; margin-bottom:0.25rem; }
+    @keyframes kpiPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4)
+      }
+
+      60% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0)
+      }
+    }
+
+    .kpi-featured {
+      border-color: rgba(16, 185, 129, 0.4) !important;
+      animation: kpiPulse 2.5s infinite;
+    }
+
+    .kpi-focus-badge {
+      display: inline-block;
+      font-size: 0.55rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #065f46;
+      background: #d1fae5;
+      border: 1px solid #6ee7b7;
+      border-radius: 999px;
+      padding: 0.1rem 0.45rem;
+      margin-bottom: 0.25rem;
+    }
   </style>
 </head>
 
@@ -206,10 +243,11 @@
               </p>
               <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">
                 Organize seus gastos em categorias e tome decisões mais rápidas.
-                <span class="block mt-2 font-medium text-slate-900 dark:text-white">Usuários PRO criam subcategorias ilimitadas.</span>
+                <span class="block mt-2 font-medium text-slate-900 dark:text-white">Usuários PRO criam subcategorias
+                  ilimitadas.</span>
               </p>
               <button
-                      class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">
+                class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">
                 Testar Premium Grátis
               </button>
               <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-2 text-center leading-tight font-medium">
@@ -219,7 +257,7 @@
           </div>
           <div class="p-4 border-t border-slate-200 dark:border-slate-800">
             <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium text-sm"
-               href="/fintrack/src/settings/index.html">
+              href="/fintrack/src/settings/index.html">
               <span class="material-symbols-outlined text-[22px]">settings</span>
               Configurações
             </a>
@@ -228,22 +266,22 @@
         <!-- Main Content -->
         <main class="flex-1 ml-64">
           <header
-                  class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0 sticky top-0 z-10">
+            class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0 sticky top-0 z-10">
             <div class="flex items-center gap-4 w-1/3">
               <div class="relative w-full max-w-sm">
-            <span
-                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
                 <input
-                        class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white dark:focus:bg-slate-700 transition-all placeholder:text-slate-400"
-                        placeholder="Busca global..." type="text" />
+                  class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white dark:focus:bg-slate-700 transition-all placeholder:text-slate-400"
+                  placeholder="Busca global..." type="text" />
               </div>
             </div>
             <div class="flex items-center gap-4">
               <button
-                      class="size-10 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
+                class="size-10 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative">
                 <span class="material-symbols-outlined">notifications</span>
                 <span
-                        class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+                  class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
               </button>
               <div class="h-8 w-px bg-slate-200 dark:border-slate-800"></div>
               <div class="flex items-center gap-3">
@@ -251,11 +289,11 @@
                   <p class="text-sm font-bold text-slate-900 dark:text-white leading-none">
                     Alex Rivera
                   </p>
-                  <p class="text-xs text-slate-500 font-medium">Membro Premium</p>
+                  <p class="text-xs text-slate-500 font-medium">Plano Free</p>
                 </div>
                 <div class="size-10 rounded-full bg-slate-200 overflow-hidden border-2 border-primary/10">
                   <img alt="Alex Rivera" data-alt="User profile avatar of Alex Rivera"
-                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDZpB7aRUL3Uqly5ZEDpCPCd8N9RAv_MSn3SCZRguBdgTZuV-zCNm8Ogr2fmOWfJFgF3DUBVnhYi-WqP7hEhdnyKwH5OJv3ZDdpvVAy6FoL4NN8FOaP1aygBjq0RTnqahqofEdOkuU7R2aVBiCNXvL7wY_zTROoz8kLajibYXazbiXYPjMpoc-fq7jn42geVtyK-gOEg8Dm3ZL0gCA3JOyuZpl5Nv18Tcay-8kJoUyzx_dFkzgRJrly7PfSsC6PrpdXAsMVmqV6aI" />
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDZpB7aRUL3Uqly5ZEDpCPCd8N9RAv_MSn3SCZRguBdgTZuV-zCNm8Ogr2fmOWfJFgF3DUBVnhYi-WqP7hEhdnyKwH5OJv3ZDdpvVAy6FoL4NN8FOaP1aygBjq0RTnqahqofEdOkuU7R2aVBiCNXvL7wY_zTROoz8kLajibYXazbiXYPjMpoc-fq7jn42geVtyK-gOEg8Dm3ZL0gCA3JOyuZpl5Nv18Tcay-8kJoUyzx_dFkzgRJrly7PfSsC6PrpdXAsMVmqV6aI" />
                 </div>
               </div>
             </div>
@@ -293,7 +331,7 @@
             </div>
             <!-- Expense Categories Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Category Card 1 — BIAS: Efeito Halo (badge Controlado) -->
+              <!-- Category Card 1 — BIAS: Efeito Halo (badge Controlado) -->
               <div
                 class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
                 <div class="flex items-center justify-between mb-4">
@@ -454,9 +492,11 @@
               </div>
               <div class="sb-body">
                 <strong>Entretenimento e Moradia não têm orçamento definido</strong>
-                <p>Categorias sem limite costumam gastar <strong>30% acima do esperado</strong>. Defina um limite agora para ter controle real dos seus gastos.</p>
+                <p>Categorias sem limite costumam gastar <strong>30% acima do esperado</strong>. Defina um limite agora
+                  para ter controle real dos seus gastos.</p>
               </div>
-              <button class="sb-cta" onclick="window.location.href='/fintrack/src/budgets/index.html'">Definir Orçamentos</button>
+              <button class="sb-cta" onclick="window.location.href='/fintrack/src/budgets/index.html'">Definir
+                Orçamentos</button>
             </div>
             <!-- Statistics Preview Section -->
             <div class="mt-12 p-6 bg-primary/5 dark:bg-primary/10 rounded-2xl border border-primary/10">
@@ -484,7 +524,8 @@
                   </p>
                   <p class="text-xl font-extrabold text-primary">$2,165.00</p>
                 </div>
-                <div data-insight="trend-kpi-badge" class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10 kpi-featured">
+                <div data-insight="trend-kpi-badge"
+                  class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10 kpi-featured">
                   <span class="kpi-focus-badge">&#x1F50D; Foco do mês</span>
                   <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
                     TENDÊNCIA
@@ -505,4 +546,3 @@
 </body>
 
 </html>
-

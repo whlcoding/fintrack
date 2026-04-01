@@ -59,31 +59,35 @@
             color: #fff;
             border-radius: 1rem;
             padding: 1.1rem 1.4rem;
-            box-shadow: 0 8px 32px rgba(22,101,52,0.35), 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 8px 32px rgba(22, 101, 52, 0.35), 0 2px 8px rgba(0, 0, 0, 0.18);
             display: flex;
             align-items: flex-start;
             gap: 0.9rem;
             opacity: 0;
             transform: translateY(24px) scale(0.97);
-            transition: opacity 0.38s cubic-bezier(.4,0,.2,1), transform 0.38s cubic-bezier(.4,0,.2,1);
+            transition: opacity 0.38s cubic-bezier(.4, 0, .2, 1), transform 0.38s cubic-bezier(.4, 0, .2, 1);
             pointer-events: none;
         }
+
         #success-toast.show {
             opacity: 1;
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+
         #success-toast .toast-icon {
             font-size: 2rem;
             line-height: 1;
             flex-shrink: 0;
         }
+
         #success-toast .toast-body p {
             margin: 0;
             font-size: 0.82rem;
             line-height: 1.5;
-            color: rgba(255,255,255,0.85);
+            color: rgba(255, 255, 255, 0.85);
         }
+
         #success-toast .toast-body strong {
             display: block;
             font-size: 0.95rem;
@@ -91,11 +95,12 @@
             margin-bottom: 0.2rem;
             color: #fff;
         }
+
         #success-toast .toast-close {
             margin-left: auto;
             background: none;
             border: none;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             cursor: pointer;
             font-size: 1.1rem;
             padding: 0;
@@ -103,25 +108,32 @@
             align-self: flex-start;
             flex-shrink: 0;
         }
-        #success-toast .toast-close:hover { color: #fff; }
+
+        #success-toast .toast-close:hover {
+            color: #fff;
+        }
 
         /* ── Confetti canvas ── */
         #confetti-canvas {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 9998;
         }
 
         /* ── Positive reinforcement card ── */
         .savings-highlight-card {
-            background: linear-gradient(135deg, rgba(34,197,94,0.12) 0%, rgba(16,185,129,0.08) 100%);
-            border: 1.5px solid rgba(34,197,94,0.35);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border: 1.5px solid rgba(34, 197, 94, 0.35);
         }
+
         .savings-highlight-card .savings-amount {
             color: #16a34a;
         }
+
         .savings-highlight-card .savings-label {
             color: #15803d;
         }
@@ -181,7 +193,8 @@
                     </p>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">
                         Exporte relatórios completos e entenda seu progresso mês a mês.
-                        <span class="block mt-2 font-medium text-slate-900 dark:text-white">Usuários PRO exportam em PDF com um clique.</span>
+                        <span class="block mt-2 font-medium text-slate-900 dark:text-white">Usuários PRO exportam em PDF
+                            com um clique.</span>
                     </p>
                     <button
                         class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">
@@ -229,7 +242,7 @@
                             <p class="text-sm font-bold text-slate-900 dark:text-white leading-none">
                                 Alex Rivera
                             </p>
-                            <p class="text-xs text-slate-500 font-medium">Membro Premium</p>
+                            <p class="text-xs text-slate-500 font-medium">Plano Free</p>
                         </div>
                         <div class="size-10 rounded-full bg-slate-200 overflow-hidden border-2 border-primary/10">
                             <img alt="Alex Rivera" data-alt="Avatar de perfil de Alex Rivera"
@@ -254,8 +267,7 @@
                             <span class="material-symbols-outlined text-[20px]">calendar_today</span>
                             Últimos 30 dias
                         </button>
-                        <button id="btn-download-report"
-                            data-tour="download-report"
+                        <button id="btn-download-report" data-tour="download-report"
                             class="flex items-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
                             <span class="material-symbols-outlined text-[20px]">download</span>
                             Baixar Relatório
@@ -436,7 +448,8 @@
                     class="mt-8 bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800">
                     <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Principais Categorias de Gastos
                     </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6" id="top-spending-list" data-tour="top-spending">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"
+                        id="top-spending-list" data-tour="top-spending">
                         <!-- index 0 — MAIOR DESPESA (Aluguel $1 500) -->
                         <div
                             class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
@@ -506,15 +519,15 @@
                             </div>
                         </div>
                         <!-- ÚLTIMO ÍNDICE — Reforço positivo injetado (Efeito Posição Serial) -->
-                        <div
-                            class="p-4 rounded-xl savings-highlight-card">
+                        <div class="p-4 rounded-xl savings-highlight-card">
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="p-2 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-lg">
                                     <span class="material-symbols-outlined text-[20px]">savings</span>
                                 </div>
                                 <span class="text-sm font-bold text-green-700 dark:text-green-400">Economia geral</span>
                             </div>
-                            <div class="w-full bg-green-200 dark:bg-green-900/40 h-1.5 rounded-full mb-2 overflow-hidden">
+                            <div
+                                class="w-full bg-green-200 dark:bg-green-900/40 h-1.5 rounded-full mb-2 overflow-hidden">
                                 <div class="bg-green-500 h-full w-full rounded-full"></div>
                             </div>
                             <div class="flex justify-between text-[11px] font-bold">
@@ -525,16 +538,22 @@
                     </div>
                 </div>
                 <!-- Próxima Melhor Ação (Singularity Effect) -->
-                <div data-insight="next-best-action" class="mt-8 p-6 bg-gradient-to-r from-white to-primary/5 dark:from-slate-900 dark:to-primary/10 rounded-xl border border-primary/20 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                <div data-insight="next-best-action"
+                    class="mt-8 p-6 bg-gradient-to-r from-white to-primary/5 dark:from-slate-900 dark:to-primary/10 rounded-xl border border-primary/20 flex flex-col sm:flex-row items-start sm:items-center gap-5">
                     <div class="p-3 bg-primary/10 dark:bg-primary/20 rounded-xl text-primary shrink-0">
                         <span class="material-symbols-outlined text-2xl">arrow_forward</span>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-[11px] font-black text-primary uppercase tracking-widest mb-1">Próxima Melhor Ação</p>
-                        <p class="font-bold text-slate-900 dark:text-white">Você gasta 2× mais em Entretenimento que usuários com renda similar.</p>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Ajustar seu limite pode liberar até $200/mês para poupança.</p>
+                        <p class="text-[11px] font-black text-primary uppercase tracking-widest mb-1">Próxima Melhor
+                            Ação</p>
+                        <p class="font-bold text-slate-900 dark:text-white">Você gasta 2× mais em Entretenimento que
+                            usuários com renda similar.</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Ajustar seu limite pode liberar até
+                            $200/mês para poupança.</p>
                     </div>
-                    <button onclick="window.location.href='/fintrack/src/budgets/index.html'" class="shrink-0 px-5 py-2.5 bg-primary text-white font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20 active:scale-95 whitespace-nowrap">Ver meu plano →</button>
+                    <button onclick="window.location.href='/fintrack/src/budgets/index.html'"
+                        class="shrink-0 px-5 py-2.5 bg-primary text-white font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20 active:scale-95 whitespace-nowrap">Ver
+                        meu plano →</button>
                 </div>
             </div>
         </main>
@@ -546,111 +565,115 @@
         <span class="toast-icon">🎉</span>
         <div class="toast-body">
             <strong>Relatório gerado com sucesso!</strong>
-            <p>Você manteve <strong style="color:#86efac">80% das suas contas On Track</strong> este mês. Excelente trabalho!</p>
-            <button onclick="document.getElementById('success-toast').classList.remove('show'); window.location.href='/fintrack/src/budgets/index.html';" style="margin-top:0.5rem;background:none;border:none;color:#86efac;font-size:0.78rem;font-weight:700;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px;">Ver onde posso melhorar →</button>
+            <p>Você manteve <strong style="color:#86efac">80% das suas contas On Track</strong> este mês. Excelente
+                trabalho!</p>
+            <button
+                onclick="document.getElementById('success-toast').classList.remove('show'); window.location.href='/fintrack/src/budgets/index.html';"
+                style="margin-top:0.5rem;background:none;border:none;color:#86efac;font-size:0.78rem;font-weight:700;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px;">Ver
+                onde posso melhorar →</button>
         </div>
         <button class="toast-close" id="toast-close-btn" aria-label="Fechar notificação">✕</button>
     </div>
 
     <script>
-    (function () {
-        /* ── Confetti engine (lightweight, no deps) ── */
-        var canvas = document.getElementById('confetti-canvas');
-        var ctx = canvas.getContext('2d');
-        var particles = [];
-        var animId = null;
-        var COLORS = ['#137fec','#22c55e','#f59e0b','#f472b6','#38bdf8','#a78bfa','#34d399'];
+            (function () {
+                /* ── Confetti engine (lightweight, no deps) ── */
+                var canvas = document.getElementById('confetti-canvas');
+                var ctx = canvas.getContext('2d');
+                var particles = [];
+                var animId = null;
+                var COLORS = ['#137fec', '#22c55e', '#f59e0b', '#f472b6', '#38bdf8', '#a78bfa', '#34d399'];
 
-        function resizeCanvas() {
-            canvas.width  = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }
+                window.addEventListener('resize', resizeCanvas);
+                resizeCanvas();
 
-        function spawnParticles(n) {
-            for (var i = 0; i < n; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: -10,
-                    r: Math.random() * 7 + 4,
-                    color: COLORS[Math.floor(Math.random() * COLORS.length)],
-                    vx: (Math.random() - 0.5) * 4,
-                    vy: Math.random() * 3 + 2,
-                    angle: Math.random() * 360,
-                    spin: (Math.random() - 0.5) * 8,
-                    opacity: 1,
-                    shape: Math.random() > 0.5 ? 'rect' : 'circle'
+                function spawnParticles(n) {
+                    for (var i = 0; i < n; i++) {
+                        particles.push({
+                            x: Math.random() * canvas.width,
+                            y: -10,
+                            r: Math.random() * 7 + 4,
+                            color: COLORS[Math.floor(Math.random() * COLORS.length)],
+                            vx: (Math.random() - 0.5) * 4,
+                            vy: Math.random() * 3 + 2,
+                            angle: Math.random() * 360,
+                            spin: (Math.random() - 0.5) * 8,
+                            opacity: 1,
+                            shape: Math.random() > 0.5 ? 'rect' : 'circle'
+                        });
+                    }
+                }
+
+                function drawParticle(p) {
+                    ctx.save();
+                    ctx.globalAlpha = p.opacity;
+                    ctx.fillStyle = p.color;
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.angle * Math.PI / 180);
+                    if (p.shape === 'rect') {
+                        ctx.fillRect(-p.r / 2, -p.r / 2, p.r, p.r * 0.5);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, p.r / 2, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach(function (p) {
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.angle += p.spin;
+                        p.vy += 0.05; /* gravity */
+                        if (p.y > canvas.height * 0.7) p.opacity -= 0.025;
+                        drawParticle(p);
+                    });
+                    particles = particles.filter(function (p) { return p.opacity > 0; });
+                    if (particles.length > 0) {
+                        animId = requestAnimationFrame(animate);
+                    } else {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        animId = null;
+                    }
+                }
+
+                function launchConfetti() {
+                    if (animId) cancelAnimationFrame(animId);
+                    particles = [];
+                    spawnParticles(130);
+                    animate();
+                }
+
+                /* ── Toast ── */
+                var toast = document.getElementById('success-toast');
+                var closeBtn = document.getElementById('toast-close-btn');
+                var toastTimer = null;
+
+                function showToast() {
+                    toast.classList.add('show');
+                    if (toastTimer) clearTimeout(toastTimer);
+                    toastTimer = setTimeout(hideToast, 6000);
+                }
+
+                function hideToast() {
+                    toast.classList.remove('show');
+                }
+
+                closeBtn.addEventListener('click', hideToast);
+
+                /* ── Download button ── */
+                var btnDownload = document.getElementById('btn-download-report');
+                btnDownload.addEventListener('click', function () {
+                    launchConfetti();
+                    showToast();
                 });
-            }
-        }
-
-        function drawParticle(p) {
-            ctx.save();
-            ctx.globalAlpha = p.opacity;
-            ctx.fillStyle = p.color;
-            ctx.translate(p.x, p.y);
-            ctx.rotate(p.angle * Math.PI / 180);
-            if (p.shape === 'rect') {
-                ctx.fillRect(-p.r / 2, -p.r / 2, p.r, p.r * 0.5);
-            } else {
-                ctx.beginPath();
-                ctx.arc(0, 0, p.r / 2, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            ctx.restore();
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(function (p) {
-                p.x += p.vx;
-                p.y += p.vy;
-                p.angle += p.spin;
-                p.vy += 0.05; /* gravity */
-                if (p.y > canvas.height * 0.7) p.opacity -= 0.025;
-                drawParticle(p);
-            });
-            particles = particles.filter(function (p) { return p.opacity > 0; });
-            if (particles.length > 0) {
-                animId = requestAnimationFrame(animate);
-            } else {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                animId = null;
-            }
-        }
-
-        function launchConfetti() {
-            if (animId) cancelAnimationFrame(animId);
-            particles = [];
-            spawnParticles(130);
-            animate();
-        }
-
-        /* ── Toast ── */
-        var toast = document.getElementById('success-toast');
-        var closeBtn = document.getElementById('toast-close-btn');
-        var toastTimer = null;
-
-        function showToast() {
-            toast.classList.add('show');
-            if (toastTimer) clearTimeout(toastTimer);
-            toastTimer = setTimeout(hideToast, 6000);
-        }
-
-        function hideToast() {
-            toast.classList.remove('show');
-        }
-
-        closeBtn.addEventListener('click', hideToast);
-
-        /* ── Download button ── */
-        var btnDownload = document.getElementById('btn-download-report');
-        btnDownload.addEventListener('click', function () {
-            launchConfetti();
-            showToast();
-        });
-    })();
+            })();
     </script>
     <script src="/fintrack/src/assets/js/tour.js"></script>
 </body>
