@@ -142,6 +142,10 @@
       transition: background 0.2s;
     }
     .scarcity-banner .sb-cta:hover { background: #ea580c; }
+    /* ── KPI Singularity Effect pulse ── */
+    @keyframes kpiPulse { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4)} 60%{box-shadow:0 0 0 8px rgba(16,185,129,0)} }
+    .kpi-featured { border-color: rgba(16,185,129,0.4) !important; animation: kpiPulse 2.5s infinite; }
+    .kpi-focus-badge { display:inline-block; font-size:0.55rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:#065f46; background:#d1fae5; border:1px solid #6ee7b7; border-radius:999px; padding:0.1rem 0.45rem; margin-bottom:0.25rem; }
   </style>
 </head>
 
@@ -201,9 +205,8 @@
                 Plano Pro
               </p>
               <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">
-                Desbloqueie análises avançadas e sincronização.
-                <span class="block mt-2 font-medium text-slate-900 dark:text-white">Junte-se a 15.000 usuários PRO que economizam mais de
-              $300/mês</span>
+                Organize seus gastos em categorias e tome decisões mais rápidas.
+                <span class="block mt-2 font-medium text-slate-900 dark:text-white">Usuários PRO criam subcategorias ilimitadas.</span>
               </p>
               <button
                       class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">
@@ -450,9 +453,8 @@
                 <span class="material-symbols-outlined" style="font-size:1.2rem">bolt</span>
               </div>
               <div class="sb-body">
-                <strong>⚠️ Categorias sem orçamento gastam 30% a mais</strong>
-                <p>Você tem <strong>2 categorias</strong> (Entretenimento e Moradia) sem limite definido. Quem define orçamentos
-                  poupa, em média, <strong>$220/mês</strong> a mais. Não deixe essa economia escapar.</p>
+                <strong>Entretenimento e Moradia não têm orçamento definido</strong>
+                <p>Categorias sem limite costumam gastar <strong>30% acima do esperado</strong>. Defina um limite agora para ter controle real dos seus gastos.</p>
               </div>
               <button class="sb-cta" onclick="window.location.href='/src/budgets/index.html'">Definir Orçamentos</button>
             </div>
@@ -482,7 +484,8 @@
                   </p>
                   <p class="text-xl font-extrabold text-primary">$2,165.00</p>
                 </div>
-                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10">
+                <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-primary/10 kpi-featured">
+                  <span class="kpi-focus-badge">&#x1F50D; Foco do mês</span>
                   <p class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
                     TENDÊNCIA
                   </p>

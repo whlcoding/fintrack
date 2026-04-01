@@ -167,9 +167,8 @@
             Plano Pro
           </p>
           <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">
-            Desbloqueie análises avançadas e sincronização.
-            <span class="block mt-2 font-medium text-slate-900 dark:text-white">Junte-se a 15.000 usuários PRO que economizam mais de
-              $300/mês</span>
+            Identifique gastos excessivos antes que virem problema.
+            <span class="block mt-2 font-medium text-slate-900 dark:text-white">Usuários PRO detectam anomalias 3× mais rápido.</span>
           </p>
           <button
                   class="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary/90 transition-all">
@@ -305,6 +304,7 @@
             Você gastou <strong>$115,79</strong> este mês — <strong>12% abaixo</strong> do seu histórico médio de $131,60.
             Continuar assim significa <strong>~$190 a mais</strong> poupados até o final do trimestre. 🎯
           </div>
+          <button id="btn-save-surplus" onclick="showSurplusToast()" class="shrink-0 bg-green-500 hover:bg-green-600 active:scale-95 text-white text-xs font-bold px-3 py-1.5 rounded-full transition-all whitespace-nowrap shadow-sm shadow-green-500/30">Guardar $190 →</button>
           <span class="fb-highlight">↓ 12% vs média</span>
         </div>
 
@@ -557,6 +557,30 @@
       </div>
     </main>
   </div>
+  <!-- Surplus Toast (Micro-commitment confirmation) -->
+  <div id="surplus-toast" style="position:fixed;bottom:2rem;right:2rem;z-index:9999;min-width:280px;background:linear-gradient(135deg,#064e3b,#065f46);color:#fff;border-radius:0.875rem;padding:1rem 1.25rem;box-shadow:0 8px 24px rgba(6,78,59,0.3);display:flex;align-items:center;gap:0.75rem;opacity:0;transform:translateY(16px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;">
+    <span style="font-size:1.4rem">💰</span>
+    <div><strong style="display:block;font-size:0.88rem;margin-bottom:0.1rem">$190 reservados!</strong><p style="font-size:0.74rem;color:rgba(255,255,255,0.8);margin:0">Transferido para sua Reserva de Emergência.</p></div>
+  </div>
+  <script>
+    function showSurplusToast() {
+      var el = document.getElementById('surplus-toast');
+      el.style.opacity = '1'; el.style.transform = 'translateY(0)'; el.style.pointerEvents = 'auto';
+      setTimeout(function(){ el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.pointerEvents='none'; }, 4000);
+    }
+    document.querySelectorAll('.loss-pill').forEach(function(pill) {
+      pill.style.cursor = 'pointer';
+      pill.title = 'Clique para criar um alerta para esta categoria';
+      pill.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var row = this.closest('tr');
+        var cat = row ? row.querySelector('.inline-flex').textContent.trim() : 'esta categoria';
+        if (confirm('Criar alerta para gastos acima da média em ' + cat + '?')) {
+          alert('✅ Alerta criado! Você será notificado quando ' + cat + ' ultrapassar a média histórica.');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
