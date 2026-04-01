@@ -76,14 +76,14 @@
 
   // ─── Estado ───────────────────────────────────────────────────────────────────
   var STORAGE_ACTIVE = 'fintrack_tour_active';
-  var STORAGE_STEP   = 'fintrack_tour_step';
+  var STORAGE_STEP = 'fintrack_tour_step';
 
-  var isActive     = false;
+  var isActive = false;
   var visibleSteps = [];   // etapas cujos elementos existem na página atual
-  var visibleIdx   = 0;    // índice dentro de visibleSteps
-  var spotlightEl  = null;
-  var overlayEl    = null;
-  var floatBtn     = null;
+  var visibleIdx = 0;    // índice dentro de visibleSteps
+  var spotlightEl = null;
+  var overlayEl = null;
+  var floatBtn = null;
 
   // ─── Estilos injetados via JS ─────────────────────────────────────────────────
   function injectStyles() {
@@ -99,33 +99,33 @@
 
       /* ── Spotlight (buraco de luz) ── */
       '.ft-spotlight{',
-        'position:fixed;border-radius:12px;',
-        'box-shadow:0 0 0 9999px rgba(0,0,0,.68);',
-        'z-index:99991;pointer-events:none;',
-        'transition:left .38s cubic-bezier(.4,0,.2,1),top .38s cubic-bezier(.4,0,.2,1),',
-        'width .38s cubic-bezier(.4,0,.2,1),height .38s cubic-bezier(.4,0,.2,1);',
-        'border:2px solid rgba(108,99,255,.55);}',
+      'position:fixed;border-radius:12px;',
+      'box-shadow:0 0 0 9999px rgba(0,0,0,.68);',
+      'z-index:99991;pointer-events:none;',
+      'transition:left .38s cubic-bezier(.4,0,.2,1),top .38s cubic-bezier(.4,0,.2,1),',
+      'width .38s cubic-bezier(.4,0,.2,1),height .38s cubic-bezier(.4,0,.2,1);',
+      'border:2px solid rgba(108,99,255,.55);}',
 
       /* ── Card explicativo ── */
       '#ft-tour-card{',
-        'position:fixed;z-index:99992;width:364px;',
-        'background:#1a1f2e;',
-        'border:1px solid rgba(108,99,255,.28);border-radius:18px;padding:26px;',
-        'box-shadow:0 28px 70px rgba(0,0,0,.55),0 0 0 1px rgba(108,99,255,.1);',
-        'font-family:"Inter","Manrope",sans-serif;color:#f0f4ff;',
-        'animation:ft-card-in .35s cubic-bezier(.34,1.56,.64,1);}',
+      'position:fixed;z-index:99992;width:364px;',
+      'background:#1a1f2e;',
+      'border:1px solid rgba(108,99,255,.28);border-radius:18px;padding:26px;',
+      'box-shadow:0 28px 70px rgba(0,0,0,.55),0 0 0 1px rgba(108,99,255,.1);',
+      'font-family:"Inter","Manrope",sans-serif;color:#f0f4ff;',
+      'animation:ft-card-in .35s cubic-bezier(.34,1.56,.64,1);}',
       '@keyframes ft-card-in{from{opacity:0;transform:translateY(14px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}',
 
       '.ft-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;',
-        'letter-spacing:.09em;text-transform:uppercase;color:#8892a4;margin-bottom:7px;}',
+      'letter-spacing:.09em;text-transform:uppercase;color:#8892a4;margin-bottom:7px;}',
       '.ft-badge-dot{width:7px;height:7px;border-radius:50%;background:#6c63ff;flex-shrink:0;}',
 
       '.ft-bias-name{font-size:19px;font-weight:800;line-height:1.2;margin-bottom:5px;',
-        'background:linear-gradient(130deg,#a78bfa,#6c63ff);',
-        '-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}',
+      'background:linear-gradient(130deg,#a78bfa,#6c63ff);',
+      '-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}',
 
       '.ft-where{font-size:11px;font-weight:600;color:#8892a4;margin-bottom:16px;',
-        'display:flex;align-items:center;gap:5px;}',
+      'display:flex;align-items:center;gap:5px;}',
 
       '.ft-divider{height:1px;background:rgba(255,255,255,.07);margin:14px 0;}',
 
@@ -143,24 +143,24 @@
 
       '.ft-btns{display:flex;gap:8px;align-items:center;flex-shrink:0;}',
       '.ft-btn-close{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);',
-        'color:#8892a4;border-radius:9px;padding:8px 14px;font-size:12px;font-weight:600;',
-        'cursor:pointer;font-family:"Inter","Manrope",sans-serif;transition:all .2s;}',
+      'color:#8892a4;border-radius:9px;padding:8px 14px;font-size:12px;font-weight:600;',
+      'cursor:pointer;font-family:"Inter","Manrope",sans-serif;transition:all .2s;}',
       '.ft-btn-close:hover{background:rgba(255,255,255,.12);color:#f0f4ff;}',
       '.ft-btn-next{background:linear-gradient(135deg,#6c63ff,#8b5cf6);border:none;color:#fff;',
-        'border-radius:9px;padding:9px 20px;font-size:13px;font-weight:700;cursor:pointer;',
-        'font-family:"Inter","Manrope",sans-serif;transition:all .22s;',
-        'box-shadow:0 4px 18px rgba(108,99,255,.38);display:flex;align-items:center;gap:5px;}',
+      'border-radius:9px;padding:9px 20px;font-size:13px;font-weight:700;cursor:pointer;',
+      'font-family:"Inter","Manrope",sans-serif;transition:all .22s;',
+      'box-shadow:0 4px 18px rgba(108,99,255,.38);display:flex;align-items:center;gap:5px;}',
       '.ft-btn-next:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(108,99,255,.55);}',
       '.ft-btn-next:active{transform:translateY(0);}',
 
       /* ── Botão flutuante ── */
       '#ft-float-btn{position:fixed;bottom:28px;right:28px;z-index:99989;',
-        'background:linear-gradient(135deg,#6c63ff 0%,#8b5cf6 100%);color:#fff;border:none;',
-        'border-radius:50px;padding:14px 22px;font-size:14px;font-weight:700;',
-        'font-family:"Inter","Manrope",sans-serif;cursor:pointer;',
-        'box-shadow:0 6px 28px rgba(108,99,255,.48),0 2px 8px rgba(0,0,0,.22);',
-        'display:flex;align-items:center;gap:9px;',
-        'transition:all .28s cubic-bezier(.34,1.56,.64,1);letter-spacing:.01em;}',
+      'background:linear-gradient(135deg,#6c63ff 0%,#8b5cf6 100%);color:#fff;border:none;',
+      'border-radius:50px;padding:14px 22px;font-size:14px;font-weight:700;',
+      'font-family:"Inter","Manrope",sans-serif;cursor:pointer;',
+      'box-shadow:0 6px 28px rgba(108,99,255,.48),0 2px 8px rgba(0,0,0,.22);',
+      'display:flex;align-items:center;gap:9px;',
+      'transition:all .28s cubic-bezier(.34,1.56,.64,1);letter-spacing:.01em;}',
       '#ft-float-btn:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 14px 38px rgba(108,99,255,.6),0 4px 12px rgba(0,0,0,.28);}',
       '#ft-float-btn:active{transform:translateY(-1px) scale(1.01);}',
       '.ft-pulse{width:8px;height:8px;border-radius:50%;background:#fff;animation:ft-pulse 2s infinite;flex-shrink:0;}',
@@ -168,16 +168,16 @@
 
       /* ── Tela de conclusão ── */
       '#ft-summary{position:fixed;inset:0;z-index:99995;background:rgba(8,12,24,.96);',
-        'backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;',
-        'padding:20px;animation:ft-fade-in .4s ease;font-family:"Inter","Manrope",sans-serif;}',
+      'backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;',
+      'padding:20px;animation:ft-fade-in .4s ease;font-family:"Inter","Manrope",sans-serif;}',
       '@keyframes ft-fade-in{from{opacity:0}to{opacity:1}}',
 
       '.ft-sum-inner{background:#1a1f2e;border:1px solid rgba(108,99,255,.22);border-radius:24px;',
-        'padding:36px 40px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;',
-        'box-shadow:0 40px 100px rgba(0,0,0,.65);}',
+      'padding:36px 40px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;',
+      'box-shadow:0 40px 100px rgba(0,0,0,.65);}',
       '.ft-sum-hd{text-align:center;margin-bottom:30px;}',
       '.ft-sum-emoji{font-size:50px;display:block;margin-bottom:14px;',
-        'animation:ft-pop .5s cubic-bezier(.34,1.56,.64,1);}',
+      'animation:ft-pop .5s cubic-bezier(.34,1.56,.64,1);}',
       '@keyframes ft-pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}',
       '.ft-sum-title{font-size:24px;font-weight:800;color:#f0f4ff;margin-bottom:8px;}',
       '.ft-sum-sub{font-size:14px;color:#8892a4;line-height:1.55;}',
@@ -187,16 +187,16 @@
       '@media(max-width:480px){.ft-sum-grid{grid-template-columns:1fr;}}',
 
       '.ft-sum-item{background:rgba(108,99,255,.07);border:1px solid rgba(108,99,255,.16);',
-        'border-radius:12px;padding:14px;transition:all .2s;}',
+      'border-radius:12px;padding:14px;transition:all .2s;}',
       '.ft-sum-item:hover{background:rgba(108,99,255,.13);border-color:rgba(108,99,255,.32);transform:translateY(-2px);}',
       '.ft-sum-num{font-size:10px;font-weight:800;color:#6c63ff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}',
       '.ft-sum-bias{font-size:13px;font-weight:700;color:#f0f4ff;margin-bottom:3px;line-height:1.3;}',
       '.ft-sum-page{font-size:10px;color:#8892a4;font-weight:500;}',
 
       '.ft-sum-cta{width:100%;padding:15px;background:linear-gradient(135deg,#6c63ff,#8b5cf6);',
-        'border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;',
-        'font-family:"Inter","Manrope",sans-serif;cursor:pointer;transition:all .25s;',
-        'box-shadow:0 6px 24px rgba(108,99,255,.42);}',
+      'border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;',
+      'font-family:"Inter","Manrope",sans-serif;cursor:pointer;transition:all .25s;',
+      'box-shadow:0 6px 24px rgba(108,99,255,.42);}',
       '.ft-sum-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(108,99,255,.58);}'
     ].join('');
     document.head.appendChild(s);
@@ -248,9 +248,9 @@
     ensureSpotlight();
     var pad = 10;
     var r = el.getBoundingClientRect();
-    spotlightEl.style.left   = (r.left - pad) + 'px';
-    spotlightEl.style.top    = (r.top  - pad) + 'px';
-    spotlightEl.style.width  = (r.width  + pad * 2) + 'px';
+    spotlightEl.style.left = (r.left - pad) + 'px';
+    spotlightEl.style.top = (r.top - pad) + 'px';
+    spotlightEl.style.width = (r.width + pad * 2) + 'px';
     spotlightEl.style.height = (r.height + pad * 2) + 'px';
     spotlightEl.style.display = 'block';
   }
@@ -261,27 +261,27 @@
 
   // ─── Posicionamento do card ───────────────────────────────────────────────────
   function positionCard(cardEl, targetRect) {
-    var W   = 364;
-    var H   = cardEl.offsetHeight || 450;
-    var vw  = window.innerWidth;
-    var vh  = window.innerHeight;
+    var W = 364;
+    var H = cardEl.offsetHeight || 450;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
     var pad = 14;
     var gap = 16;
-    var sp  = 10; // spotlight padding
+    var sp = 10; // spotlight padding
 
     // Candidatos: direita, esquerda, abaixo, acima
     var candidates = [
-      { left: targetRect.right  + sp + gap,         top: targetRect.top  - sp },
-      { left: targetRect.left   - sp - W - gap,     top: targetRect.top  - sp },
-      { left: targetRect.left   - sp,               top: targetRect.bottom + sp + gap },
-      { left: targetRect.left   - sp,               top: targetRect.top  - sp - H - gap }
+      { left: targetRect.right + sp + gap, top: targetRect.top - sp },
+      { left: targetRect.left - sp - W - gap, top: targetRect.top - sp },
+      { left: targetRect.left - sp, top: targetRect.bottom + sp + gap },
+      { left: targetRect.left - sp, top: targetRect.top - sp - H - gap }
     ];
 
     var chosen = null;
     for (var i = 0; i < candidates.length; i++) {
       var c = candidates[i];
       if (c.left >= pad && c.left + W <= vw - pad &&
-          c.top  >= pad && c.top  + H <= vh - pad) {
+        c.top >= pad && c.top + H <= vh - pad) {
         chosen = c;
         break;
       }
@@ -291,16 +291,16 @@
     if (!chosen) {
       chosen = {
         left: Math.max(pad, (vw - W) / 2),
-        top:  Math.max(pad, (vh - H) / 2)
+        top: Math.max(pad, (vh - H) / 2)
       };
     }
 
     // Clamp final
     chosen.left = Math.max(pad, Math.min(vw - W - pad, chosen.left));
-    chosen.top  = Math.max(pad, Math.min(vh - H - pad, chosen.top));
+    chosen.top = Math.max(pad, Math.min(vh - H - pad, chosen.top));
 
     cardEl.style.left = chosen.left + 'px';
-    cardEl.style.top  = chosen.top  + 'px';
+    cardEl.style.top = chosen.top + 'px';
   }
 
   // ─── Renderizar card ──────────────────────────────────────────────────────────
@@ -309,14 +309,14 @@
     if (existing) existing.remove();
 
     var isLast = (idx === total - 1);
-    var card   = document.createElement('div');
-    card.id    = 'ft-tour-card';
+    var card = document.createElement('div');
+    card.id = 'ft-tour-card';
 
     // Dots de progresso
     var dots = '';
     for (var i = 0; i < total; i++) {
       var cls = 'ft-dot';
-      if      (i < idx)  cls += ' ft-dot-done';
+      if (i < idx) cls += ' ft-dot-done';
       else if (i === idx) cls += ' ft-dot-active';
       dots += '<div class="' + cls + '" aria-hidden="true"></div>';
     }
@@ -325,32 +325,32 @@
       '<div class="ft-badge"><span class="ft-badge-dot"></span>Viés Cognitivo</div>' +
       '<div class="ft-bias-name">' + step.bias + '</div>' +
       '<div class="ft-where">' +
-        '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0" aria-hidden="true">' +
-          '<path d="M6 1L1 4v7h4V8h2v3h4V4L6 1z" stroke="#8892a4" stroke-width="1.2" fill="none" stroke-linejoin="round"/>' +
-        '</svg>' +
-        step.where +
+      '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0" aria-hidden="true">' +
+      '<path d="M6 1L1 4v7h4V8h2v3h4V4L6 1z" stroke="#8892a4" stroke-width="1.2" fill="none" stroke-linejoin="round"/>' +
+      '</svg>' +
+      step.where +
       '</div>' +
       '<div class="ft-divider"></div>' +
       '<div class="ft-section">' +
-        '<div class="ft-label">📖 Definição</div>' +
-        '<div class="ft-text">' + step.definition + '</div>' +
+      '<div class="ft-label">📖 Definição</div>' +
+      '<div class="ft-text">' + step.definition + '</div>' +
       '</div>' +
       '<div class="ft-section">' +
-        '<div class="ft-label">💡 Por que foi aplicado</div>' +
-        '<div class="ft-text">' + step.why + '</div>' +
+      '<div class="ft-label">💡 Por que foi aplicado</div>' +
+      '<div class="ft-text">' + step.why + '</div>' +
       '</div>' +
       '<div class="ft-divider"></div>' +
       '<div class="ft-footer">' +
-        '<div>' +
-          '<div class="ft-progress-label"><strong>' + (idx + 1) + '</strong> / ' + total + '</div>' +
-          '<div class="ft-dots" role="tablist" aria-label="Progresso do tour">' + dots + '</div>' +
-        '</div>' +
-        '<div class="ft-btns">' +
-          '<button class="ft-btn-close" id="ft-close-btn">✕ Fechar</button>' +
-          '<button class="ft-btn-next" id="ft-next-btn">' +
-            (isLast ? 'Concluir ✓' : 'Próximo →') +
-          '</button>' +
-        '</div>' +
+      '<div>' +
+      '<div class="ft-progress-label"><strong>' + (idx + 1) + '</strong> / ' + total + '</div>' +
+      '<div class="ft-dots" role="tablist" aria-label="Progresso do tour">' + dots + '</div>' +
+      '</div>' +
+      '<div class="ft-btns">' +
+      '<button class="ft-btn-close" id="ft-close-btn">✕ Fechar</button>' +
+      '<button class="ft-btn-next" id="ft-next-btn">' +
+      (isLast ? 'Concluir ✓' : 'Próximo →') +
+      '</button>' +
+      '</div>' +
       '</div>';
 
     document.body.appendChild(card);
@@ -424,7 +424,7 @@
 
     visibleIdx = idx;
     var info = visibleSteps[idx];
-    var el   = info.element;
+    var el = info.element;
 
     // Scroll suave até o elemento
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -450,8 +450,8 @@
     var card = document.getElementById('ft-tour-card');
     if (card) {
       card.style.transition = 'opacity .18s ease, transform .18s ease';
-      card.style.opacity    = '0';
-      card.style.transform  = 'translateY(-10px) scale(.97)';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(-10px) scale(.97)';
       setTimeout(function () {
         showStep(visibleIdx + 1);
       }, 180);
@@ -520,9 +520,9 @@
     var items = STEPS.map(function (s, i) {
       return (
         '<div class="ft-sum-item">' +
-          '<div class="ft-sum-num">Etapa ' + (i + 1) + '</div>' +
-          '<div class="ft-sum-bias">' + s.bias + '</div>' +
-          '<div class="ft-sum-page">' + s.where + '</div>' +
+        '<div class="ft-sum-num">Etapa ' + (i + 1) + '</div>' +
+        '<div class="ft-sum-bias">' + s.bias + '</div>' +
+        '<div class="ft-sum-page">' + s.where + '</div>' +
         '</div>'
       );
     }).join('');
@@ -535,23 +535,23 @@
 
     summary.innerHTML =
       '<div class="ft-sum-inner">' +
-        '<div class="ft-sum-hd">' +
-          '<span class="ft-sum-emoji" aria-hidden="true">🎉</span>' +
-          '<div class="ft-sum-title">Apresentação concluída!</div>' +
-          '<div class="ft-sum-sub">' +
-            'Você explorou <strong>8 vieses cognitivos</strong> aplicados no FinTrack.<br>' +
-            'Cada detalhe foi cuidadosamente pensado para uma melhor experiência financeira.' +
-          '</div>' +
-        '</div>' +
-        '<div class="ft-sum-grid">' + items + '</div>' +
-        '<button class="ft-sum-cta" id="ft-sum-close">✓ Entendido — Obrigado!</button>' +
+      '<div class="ft-sum-hd">' +
+      '<span class="ft-sum-emoji" aria-hidden="true">🎉</span>' +
+      '<div class="ft-sum-title">Apresentação concluída!</div>' +
+      '<div class="ft-sum-sub">' +
+      'Você explorou <strong>8 vieses cognitivos</strong> aplicados no FinTrack.<br>' +
+      'Cada detalhe foi cuidadosamente pensado para uma melhor experiência financeira.' +
+      '</div>' +
+      '</div>' +
+      '<div class="ft-sum-grid">' + items + '</div>' +
+      '<button class="ft-sum-cta" id="ft-sum-close">✓ Entendido — Obrigado!</button>' +
       '</div>';
 
     document.body.appendChild(summary);
 
     document.getElementById('ft-sum-close').addEventListener('click', function () {
       summary.style.transition = 'opacity .3s';
-      summary.style.opacity    = '0';
+      summary.style.opacity = '0';
       setTimeout(function () { summary.remove(); }, 300);
     });
 
@@ -610,6 +610,16 @@
   // ─── Dados das etapas (Growth Design) ────────────────────────────────────────
   var GD_STEPS = [
     {
+      selector: '[data-insight="first-step-banner"]',
+      page: '/fintrack/src/dashboard/index.html',
+      technique: 'MC + SE',
+      techniqueLabel: 'Micro-commitment + Singularity Effect',
+      title: 'Captura de intenção no primeiro acesso',
+      where: 'Dashboard / Banner "Primeiro Passo Inteligente"',
+      what: 'Banner inserido entre o header e os cards de métricas, com uma única pergunta e 3 chips selecionáveis. Um clique navega para a área mais relevante e o banner some.',
+      why: 'Quando o usuário abre o app pela primeira vez, ele não sabe por onde começar — e um dashboard cheio de números não ajuda. O Singularity Effect resolve isso reduzindo tudo a uma única pergunta: em vez de explorar sozinho, o usuário só precisa responder uma coisa. Sem comparação, sem hesitação. Mas a pergunta sozinha não basta. É o clique que ativa o Micro-commitment: ao escolher um chip, o usuário não está só navegando — ele está declarando em voz alta para si mesmo o que quer do produto. E pessoas tendem a agir de forma consistente com escolhas que já fizeram conscientemente. O resultado é que o produto deixa de ser genérico e passa a ter um propósito definido pelo próprio usuário — o que aumenta em até 40% a chance de ele ainda estar usando o app 7 dias depois.'
+    },
+    {
       selector: '[data-insight="pro-card-dashboard"]',
       page: '/fintrack/src/dashboard/index.html',
       technique: 'SE',
@@ -618,16 +628,6 @@
       where: 'Dashboard / Card "Plano Pro" na Sidebar',
       what: 'O texto genérico foi substituído por uma promessa singular: "Veja exatamente para onde vai cada real do seu dinheiro. Usuários PRO poupam $300/mês."',
       why: 'Uma promessa singular e específica tem 2× mais chance de ser processada e lembrada do que duas mensagens genéricas competindo pela mesma atenção cognitiva.'
-    },
-    {
-      selector: '[data-insight="first-step-banner"]',
-      page: '/fintrack/src/dashboard/index.html',
-      technique: 'MC + SE',
-      techniqueLabel: 'Micro-commitment + Singularity Effect',
-      title: 'Captura de intenção no primeiro acesso',
-      where: 'Dashboard / Banner "Primeiro Passo Inteligente"',
-      what: 'Banner entre o header e os cards de métricas, com uma única pergunta e 3 chips. Um clique navega para a área mais relevante. Exibe apenas uma vez via localStorage.',
-      why: 'Micro-commitment de seleção (um clique) + pergunta única eliminam a paralisia de escolha. Produtos com intent-capture no primeiro acesso retêm usuários em D7 até 40% mais.'
     },
     {
       selector: '[data-insight="save-190-btn"]',
@@ -673,14 +673,14 @@
 
   // ─── Estado (completamente isolado do Tour 1) ─────────────────────────────────
   var GD_STORAGE_ACTIVE = 'fintrack_gd_tour_active';
-  var GD_STORAGE_STEP   = 'fintrack_gd_tour_step';
+  var GD_STORAGE_STEP = 'fintrack_gd_tour_step';
 
-  var gdIsActive     = false;
+  var gdIsActive = false;
   var gdVisibleSteps = [];
-  var gdVisibleIdx   = 0;
-  var gdSpotlightEl  = null;
-  var gdOverlayEl    = null;
-  var gdFloatBtn     = null;
+  var gdVisibleIdx = 0;
+  var gdSpotlightEl = null;
+  var gdOverlayEl = null;
+  var gdFloatBtn = null;
 
   // ─── Injetar estilos adicionais (somente os exclusivos do Tour 2) ─────────────
   function gdInjectStyles() {
@@ -690,12 +690,12 @@
     s.textContent = [
       /* ── Botão flutuante verde ── */
       '#ft-gd-float-btn{position:fixed;bottom:92px;right:28px;z-index:99989;',
-        'background:linear-gradient(135deg,#059669 0%,#10b981 100%);color:#fff;border:none;',
-        'border-radius:50px;padding:14px 22px;font-size:14px;font-weight:700;',
-        'font-family:"Inter","Manrope",sans-serif;cursor:pointer;',
-        'box-shadow:0 6px 28px rgba(16,185,129,.45),0 2px 8px rgba(0,0,0,.2);',
-        'display:flex;align-items:center;gap:9px;',
-        'transition:all .28s cubic-bezier(.34,1.56,.64,1);letter-spacing:.01em;}',
+      'background:linear-gradient(135deg,#059669 0%,#10b981 100%);color:#fff;border:none;',
+      'border-radius:50px;padding:14px 22px;font-size:14px;font-weight:700;',
+      'font-family:"Inter","Manrope",sans-serif;cursor:pointer;',
+      'box-shadow:0 6px 28px rgba(16,185,129,.45),0 2px 8px rgba(0,0,0,.2);',
+      'display:flex;align-items:center;gap:9px;',
+      'transition:all .28s cubic-bezier(.34,1.56,.64,1);letter-spacing:.01em;}',
       '#ft-gd-float-btn:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 14px 38px rgba(16,185,129,.58),0 4px 12px rgba(0,0,0,.26);}',
       '#ft-gd-float-btn:active{transform:translateY(-1px) scale(1.01);}',
       '.ft-gd-pulse{width:8px;height:8px;border-radius:50%;background:#fff;animation:ft-gd-pulse 2.2s infinite;flex-shrink:0;}',
@@ -705,39 +705,39 @@
 
       /* ── Spotlight verde ── */
       '.ft-gd-spotlight{',
-        'position:fixed;border-radius:12px;',
-        'box-shadow:0 0 0 9999px rgba(0,0,0,.68);',
-        'z-index:99991;pointer-events:none;',
-        'transition:left .38s cubic-bezier(.4,0,.2,1),top .38s cubic-bezier(.4,0,.2,1),',
-        'width .38s cubic-bezier(.4,0,.2,1),height .38s cubic-bezier(.4,0,.2,1);',
-        'border:2px solid rgba(16,185,129,.6);}',
+      'position:fixed;border-radius:12px;',
+      'box-shadow:0 0 0 9999px rgba(0,0,0,.68);',
+      'z-index:99991;pointer-events:none;',
+      'transition:left .38s cubic-bezier(.4,0,.2,1),top .38s cubic-bezier(.4,0,.2,1),',
+      'width .38s cubic-bezier(.4,0,.2,1),height .38s cubic-bezier(.4,0,.2,1);',
+      'border:2px solid rgba(16,185,129,.6);}',
 
       /* ── Card do Tour 2 ── */
       '#ft-gd-card{',
-        'position:fixed;z-index:99992;width:374px;',
-        'background:#0d1a14;',
-        'border:1px solid rgba(16,185,129,.3);border-radius:18px;padding:26px;',
-        'box-shadow:0 28px 70px rgba(0,0,0,.6),0 0 0 1px rgba(16,185,129,.1);',
-        'font-family:"Inter","Manrope",sans-serif;color:#ecfdf5;',
-        'animation:ft-gd-card-in .35s cubic-bezier(.34,1.56,.64,1);}',
+      'position:fixed;z-index:99992;width:374px;',
+      'background:#0d1a14;',
+      'border:1px solid rgba(16,185,129,.3);border-radius:18px;padding:26px;',
+      'box-shadow:0 28px 70px rgba(0,0,0,.6),0 0 0 1px rgba(16,185,129,.1);',
+      'font-family:"Inter","Manrope",sans-serif;color:#ecfdf5;',
+      'animation:ft-gd-card-in .35s cubic-bezier(.34,1.56,.64,1);}',
       '@keyframes ft-gd-card-in{from{opacity:0;transform:translateY(14px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}',
 
       /* ── Badge de técnica ── */
       '.ft-gd-tech-badge{display:inline-flex;align-items:center;gap:6px;margin-bottom:8px;}',
       '.ft-gd-tech-pill{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:800;',
-        'letter-spacing:.1em;text-transform:uppercase;color:#065f46;',
-        'background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:1px solid #6ee7b7;',
-        'border-radius:999px;padding:3px 9px;}',
+      'letter-spacing:.1em;text-transform:uppercase;color:#065f46;',
+      'background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:1px solid #6ee7b7;',
+      'border-radius:999px;padding:3px 9px;}',
       '.ft-gd-tech-sub{font-size:10px;font-weight:600;color:#6ee7b7;letter-spacing:.04em;}',
 
       /* ── Título ── */
       '.ft-gd-title{font-size:18px;font-weight:800;line-height:1.25;margin-bottom:5px;',
-        'background:linear-gradient(130deg,#6ee7b7,#10b981);',
-        '-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}',
+      'background:linear-gradient(130deg,#6ee7b7,#10b981);',
+      '-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}',
 
       /* ── Where ── */
       '.ft-gd-where{font-size:11px;font-weight:600;color:#6ee7b7;opacity:.75;margin-bottom:16px;',
-        'display:flex;align-items:center;gap:5px;}',
+      'display:flex;align-items:center;gap:5px;}',
 
       /* ── Divider ── */
       '.ft-gd-divider{height:1px;background:rgba(255,255,255,.07);margin:14px 0;}',
@@ -759,28 +759,28 @@
       /* ── Botões ── */
       '.ft-gd-btns{display:flex;gap:8px;align-items:center;flex-shrink:0;}',
       '.ft-gd-btn-close{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);',
-        'color:#6ee7b7;border-radius:9px;padding:8px 14px;font-size:12px;font-weight:600;',
-        'cursor:pointer;font-family:"Inter","Manrope",sans-serif;transition:all .2s;}',
+      'color:#6ee7b7;border-radius:9px;padding:8px 14px;font-size:12px;font-weight:600;',
+      'cursor:pointer;font-family:"Inter","Manrope",sans-serif;transition:all .2s;}',
       '.ft-gd-btn-close:hover{background:rgba(255,255,255,.12);color:#ecfdf5;}',
       '.ft-gd-btn-next{background:linear-gradient(135deg,#059669,#10b981);border:none;color:#fff;',
-        'border-radius:9px;padding:9px 20px;font-size:13px;font-weight:700;cursor:pointer;',
-        'font-family:"Inter","Manrope",sans-serif;transition:all .22s;',
-        'box-shadow:0 4px 18px rgba(16,185,129,.38);display:flex;align-items:center;gap:5px;}',
+      'border-radius:9px;padding:9px 20px;font-size:13px;font-weight:700;cursor:pointer;',
+      'font-family:"Inter","Manrope",sans-serif;transition:all .22s;',
+      'box-shadow:0 4px 18px rgba(16,185,129,.38);display:flex;align-items:center;gap:5px;}',
       '.ft-gd-btn-next:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(16,185,129,.55);}',
       '.ft-gd-btn-next:active{transform:translateY(0);}',
 
       /* ── Tela de conclusão do Tour 2 ── */
       '#ft-gd-summary{position:fixed;inset:0;z-index:99995;background:rgba(2,10,6,.97);',
-        'backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;',
-        'padding:20px;animation:ft-gd-fade-in .4s ease;font-family:"Inter","Manrope",sans-serif;}',
+      'backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;',
+      'padding:20px;animation:ft-gd-fade-in .4s ease;font-family:"Inter","Manrope",sans-serif;}',
       '@keyframes ft-gd-fade-in{from{opacity:0}to{opacity:1}}',
 
       '.ft-gd-sum-inner{background:#0d1a14;border:1px solid rgba(16,185,129,.22);border-radius:24px;',
-        'padding:36px 40px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;',
-        'box-shadow:0 40px 100px rgba(0,0,0,.7);}',
+      'padding:36px 40px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;',
+      'box-shadow:0 40px 100px rgba(0,0,0,.7);}',
       '.ft-gd-sum-hd{text-align:center;margin-bottom:30px;}',
       '.ft-gd-sum-emoji{font-size:50px;display:block;margin-bottom:14px;',
-        'animation:ft-gd-pop .5s cubic-bezier(.34,1.56,.64,1);}',
+      'animation:ft-gd-pop .5s cubic-bezier(.34,1.56,.64,1);}',
       '@keyframes ft-gd-pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}',
       '.ft-gd-sum-title{font-size:22px;font-weight:800;color:#ecfdf5;margin-bottom:8px;line-height:1.25;}',
       '.ft-gd-sum-sub{font-size:14px;color:#6ee7b7;line-height:1.55;opacity:.85;}',
@@ -790,19 +790,19 @@
       '@media(max-width:480px){.ft-gd-sum-grid{grid-template-columns:1fr;}}',
 
       '.ft-gd-sum-item{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);',
-        'border-radius:12px;padding:14px;transition:all .2s;}',
+      'border-radius:12px;padding:14px;transition:all .2s;}',
       '.ft-gd-sum-item:hover{background:rgba(16,185,129,.13);border-color:rgba(16,185,129,.35);transform:translateY(-2px);}',
       '.ft-gd-sum-num{font-size:10px;font-weight:800;color:#10b981;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}',
       '.ft-gd-sum-tech{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;',
-        'color:#065f46;background:#d1fae5;border:1px solid #6ee7b7;border-radius:999px;',
-        'padding:1px 7px;margin-bottom:4px;}',
+      'color:#065f46;background:#d1fae5;border:1px solid #6ee7b7;border-radius:999px;',
+      'padding:1px 7px;margin-bottom:4px;}',
       '.ft-gd-sum-title-item{font-size:12px;font-weight:700;color:#ecfdf5;margin-bottom:2px;line-height:1.3;}',
       '.ft-gd-sum-page{font-size:10px;color:#6ee7b7;font-weight:500;opacity:.7;}',
 
       '.ft-gd-sum-cta{width:100%;padding:15px;background:linear-gradient(135deg,#059669,#10b981);',
-        'border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;',
-        'font-family:"Inter","Manrope",sans-serif;cursor:pointer;transition:all .25s;',
-        'box-shadow:0 6px 24px rgba(16,185,129,.42);}',
+      'border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;',
+      'font-family:"Inter","Manrope",sans-serif;cursor:pointer;transition:all .25s;',
+      'box-shadow:0 6px 24px rgba(16,185,129,.42);}',
       '.ft-gd-sum-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(16,185,129,.58);}'
     ].join('');
     document.head.appendChild(s);
@@ -853,9 +853,9 @@
     gdEnsureSpotlight();
     var pad = 10;
     var r = el.getBoundingClientRect();
-    gdSpotlightEl.style.left   = (r.left - pad) + 'px';
-    gdSpotlightEl.style.top    = (r.top  - pad) + 'px';
-    gdSpotlightEl.style.width  = (r.width  + pad * 2) + 'px';
+    gdSpotlightEl.style.left = (r.left - pad) + 'px';
+    gdSpotlightEl.style.top = (r.top - pad) + 'px';
+    gdSpotlightEl.style.width = (r.width + pad * 2) + 'px';
     gdSpotlightEl.style.height = (r.height + pad * 2) + 'px';
     gdSpotlightEl.style.display = 'block';
   }
@@ -866,26 +866,26 @@
 
   // ─── Posicionamento do card (mesma lógica do Tour 1) ─────────────────────────
   function gdPositionCard(cardEl, targetRect) {
-    var W   = 374;
-    var H   = cardEl.offsetHeight || 460;
-    var vw  = window.innerWidth;
-    var vh  = window.innerHeight;
+    var W = 374;
+    var H = cardEl.offsetHeight || 460;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
     var pad = 14;
     var gap = 16;
-    var sp  = 10;
+    var sp = 10;
 
     var candidates = [
-      { left: targetRect.right  + sp + gap,     top: targetRect.top  - sp },
-      { left: targetRect.left   - sp - W - gap, top: targetRect.top  - sp },
-      { left: targetRect.left   - sp,           top: targetRect.bottom + sp + gap },
-      { left: targetRect.left   - sp,           top: targetRect.top  - sp - H - gap }
+      { left: targetRect.right + sp + gap, top: targetRect.top - sp },
+      { left: targetRect.left - sp - W - gap, top: targetRect.top - sp },
+      { left: targetRect.left - sp, top: targetRect.bottom + sp + gap },
+      { left: targetRect.left - sp, top: targetRect.top - sp - H - gap }
     ];
 
     var chosen = null;
     for (var i = 0; i < candidates.length; i++) {
       var c = candidates[i];
       if (c.left >= pad && c.left + W <= vw - pad &&
-          c.top  >= pad && c.top  + H <= vh - pad) {
+        c.top >= pad && c.top + H <= vh - pad) {
         chosen = c;
         break;
       }
@@ -896,10 +896,10 @@
     }
 
     chosen.left = Math.max(pad, Math.min(vw - W - pad, chosen.left));
-    chosen.top  = Math.max(pad, Math.min(vh - H - pad, chosen.top));
+    chosen.top = Math.max(pad, Math.min(vh - H - pad, chosen.top));
 
     cardEl.style.left = chosen.left + 'px';
-    cardEl.style.top  = chosen.top  + 'px';
+    cardEl.style.top = chosen.top + 'px';
   }
 
   // ─── Renderizar card do Tour 2 ────────────────────────────────────────────────
@@ -908,50 +908,50 @@
     if (existing) existing.remove();
 
     var isLast = (idx === total - 1);
-    var card   = document.createElement('div');
-    card.id    = 'ft-gd-card';
+    var card = document.createElement('div');
+    card.id = 'ft-gd-card';
 
     var dots = '';
     for (var i = 0; i < total; i++) {
       var cls = 'ft-gd-dot';
-      if      (i < idx)   cls += ' ft-gd-done';
+      if (i < idx) cls += ' ft-gd-done';
       else if (i === idx) cls += ' ft-gd-active';
       dots += '<div class="' + cls + '" aria-hidden="true"></div>';
     }
 
     card.innerHTML =
       '<div class="ft-gd-tech-badge">' +
-        '<span class="ft-gd-tech-pill">' + step.technique + '</span>' +
-        '<span class="ft-gd-tech-sub">' + step.techniqueLabel + '</span>' +
+      '<span class="ft-gd-tech-pill">' + step.technique + '</span>' +
+      '<span class="ft-gd-tech-sub">' + step.techniqueLabel + '</span>' +
       '</div>' +
       '<div class="ft-gd-title">' + step.title + '</div>' +
       '<div class="ft-gd-where">' +
-        '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0" aria-hidden="true">' +
-          '<path d="M6 1L1 4v7h4V8h2v3h4V4L6 1z" stroke="#6ee7b7" stroke-width="1.2" fill="none" stroke-linejoin="round"/>' +
-        '</svg>' +
-        step.where +
+      '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0" aria-hidden="true">' +
+      '<path d="M6 1L1 4v7h4V8h2v3h4V4L6 1z" stroke="#6ee7b7" stroke-width="1.2" fill="none" stroke-linejoin="round"/>' +
+      '</svg>' +
+      step.where +
       '</div>' +
       '<div class="ft-gd-divider"></div>' +
       '<div class="ft-gd-section">' +
-        '<div class="ft-gd-label">🔧 O que foi feito</div>' +
-        '<div class="ft-gd-text">' + step.what + '</div>' +
+      '<div class="ft-gd-label">🔧 O que foi feito</div>' +
+      '<div class="ft-gd-text">' + step.what + '</div>' +
       '</div>' +
       '<div class="ft-gd-section">' +
-        '<div class="ft-gd-label">📈 Por que funciona</div>' +
-        '<div class="ft-gd-text">' + step.why + '</div>' +
+      '<div class="ft-gd-label">📈 Por que funciona</div>' +
+      '<div class="ft-gd-text">' + step.why + '</div>' +
       '</div>' +
       '<div class="ft-gd-divider"></div>' +
       '<div class="ft-gd-footer">' +
-        '<div>' +
-          '<div class="ft-gd-progress-label"><strong>' + (idx + 1) + '</strong> / ' + total + '</div>' +
-          '<div class="ft-gd-dots" role="tablist" aria-label="Progresso dos insights">' + dots + '</div>' +
-        '</div>' +
-        '<div class="ft-gd-btns">' +
-          '<button class="ft-gd-btn-close" id="ft-gd-close-btn">✕ Fechar</button>' +
-          '<button class="ft-gd-btn-next" id="ft-gd-next-btn">' +
-            (isLast ? 'Concluir ✓' : 'Próximo →') +
-          '</button>' +
-        '</div>' +
+      '<div>' +
+      '<div class="ft-gd-progress-label"><strong>' + (idx + 1) + '</strong> / ' + total + '</div>' +
+      '<div class="ft-gd-dots" role="tablist" aria-label="Progresso dos insights">' + dots + '</div>' +
+      '</div>' +
+      '<div class="ft-gd-btns">' +
+      '<button class="ft-gd-btn-close" id="ft-gd-close-btn">✕ Fechar</button>' +
+      '<button class="ft-gd-btn-next" id="ft-gd-next-btn">' +
+      (isLast ? 'Concluir ✓' : 'Próximo →') +
+      '</button>' +
+      '</div>' +
       '</div>';
 
     document.body.appendChild(card);
@@ -1013,7 +1013,7 @@
 
     gdVisibleIdx = idx;
     var info = gdVisibleSteps[idx];
-    var el   = info.element;
+    var el = info.element;
 
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     gdOverlayEl.classList.add('ft-active');
@@ -1031,8 +1031,8 @@
     var card = document.getElementById('ft-gd-card');
     if (card) {
       card.style.transition = 'opacity .18s ease, transform .18s ease';
-      card.style.opacity    = '0';
-      card.style.transform  = 'translateY(-10px) scale(.97)';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(-10px) scale(.97)';
       setTimeout(function () { gdShowStep(gdVisibleIdx + 1); }, 180);
     } else {
       gdShowStep(gdVisibleIdx + 1);
@@ -1086,10 +1086,10 @@
     var items = GD_STEPS.map(function (s, i) {
       return (
         '<div class="ft-gd-sum-item">' +
-          '<div class="ft-gd-sum-num">Case ' + (i + 1) + '</div>' +
-          '<span class="ft-gd-sum-tech">' + s.technique + '</span>' +
-          '<div class="ft-gd-sum-title-item">' + s.title + '</div>' +
-          '<div class="ft-gd-sum-page">' + s.where + '</div>' +
+        '<div class="ft-gd-sum-num">Case ' + (i + 1) + '</div>' +
+        '<span class="ft-gd-sum-tech">' + s.technique + '</span>' +
+        '<div class="ft-gd-sum-title-item">' + s.title + '</div>' +
+        '<div class="ft-gd-sum-page">' + s.where + '</div>' +
         '</div>'
       );
     }).join('');
@@ -1102,23 +1102,23 @@
 
     summary.innerHTML =
       '<div class="ft-gd-sum-inner">' +
-        '<div class="ft-gd-sum-hd">' +
-          '<span class="ft-gd-sum-emoji" aria-hidden="true">🌱</span>' +
-          '<div class="ft-gd-sum-title">Growth Design aplicado neste produto</div>' +
-          '<div class="ft-gd-sum-sub">' +
-            'Você explorou <strong>6 decisões de Growth Design</strong> implementadas no FinTrack.<br>' +
-            'Cada escolha foi guiada por dados de comportamento e psicologia do usuário.' +
-          '</div>' +
-        '</div>' +
-        '<div class="ft-gd-sum-grid">' + items + '</div>' +
-        '<button class="ft-gd-sum-cta" id="ft-gd-sum-close">✓ Entendido — Obrigado!</button>' +
+      '<div class="ft-gd-sum-hd">' +
+      '<span class="ft-gd-sum-emoji" aria-hidden="true">🌱</span>' +
+      '<div class="ft-gd-sum-title">Growth Design aplicado neste produto</div>' +
+      '<div class="ft-gd-sum-sub">' +
+      'Você explorou <strong>6 decisões de Growth Design</strong> implementadas no FinTrack.<br>' +
+      'Cada escolha foi guiada por dados de comportamento e psicologia do usuário.' +
+      '</div>' +
+      '</div>' +
+      '<div class="ft-gd-sum-grid">' + items + '</div>' +
+      '<button class="ft-gd-sum-cta" id="ft-gd-sum-close">✓ Entendido — Obrigado!</button>' +
       '</div>';
 
     document.body.appendChild(summary);
 
     document.getElementById('ft-gd-sum-close').addEventListener('click', function () {
       summary.style.transition = 'opacity .3s';
-      summary.style.opacity    = '0';
+      summary.style.opacity = '0';
       setTimeout(function () { summary.remove(); }, 300);
     });
 
