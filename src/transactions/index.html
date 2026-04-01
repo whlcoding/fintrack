@@ -304,7 +304,7 @@
             Você gastou <strong>$115,79</strong> este mês — <strong>12% abaixo</strong> do seu histórico médio de $131,60.
             Continuar assim significa <strong>~$190 a mais</strong> poupados até o final do trimestre. 🎯
           </div>
-          <button id="btn-save-surplus" onclick="showSurplusToast()" class="shrink-0 bg-green-500 hover:bg-green-600 active:scale-95 text-white text-xs font-bold px-3 py-1.5 rounded-full transition-all whitespace-nowrap shadow-sm shadow-green-500/30">Guardar $190 →</button>
+          <button id="btn-save-surplus" data-insight="save-190-btn" onclick="showSurplusToast()" class="shrink-0 bg-green-500 hover:bg-green-600 active:scale-95 text-white text-xs font-bold px-3 py-1.5 rounded-full transition-all whitespace-nowrap shadow-sm shadow-green-500/30">Guardar $190 →</button>
           <span class="fb-highlight">↓ 12% vs média</span>
         </div>
 
@@ -581,6 +581,7 @@
       });
     });
   </script>
+  <script src="/src/assets/js/tour.js"></script>
 </body>
 
 </html>
